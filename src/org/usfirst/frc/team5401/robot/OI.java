@@ -92,6 +92,8 @@ public class OI {
 //		operatorY.whenPressed(new Climb(1));
 //		operatorY.whenReleased(new Climb(0));
 		
+		//Xbox Move Override
+		driverX.whenPressed(new xboxMove());
 		
 	}
 
