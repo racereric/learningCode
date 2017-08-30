@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="org/usfirst/frc/team5401/robot/commands/Climb.java|org/usfirst/frc/team5401/robot/commands/feederArmUpDown.java|org/usfirst/frc/team5401/robot/commands/feederControl.java|org/usfirst/frc/team5401/robot/commands/feederInOut.java|org/usfirst/frc/team5401/robot/commands/loadShooter.java|org/usfirst/frc/team5401/robot/commands/PopGear.java|org/usfirst/frc/team5401/robot/commands/toggleCompressor.java|org/usfirst/frc/team5401/robot/commands/unjamIn.java|org/usfirst/frc/team5401/robot/commands/unjamToggle.java" kind="src" path="src"/>
+	<classpathentry excluding="org/usfirst/frc/team5401/robot/commands/Climb.java|org/usfirst/frc/team5401/robot/commands/feederArmUpDown.java|org/usfirst/frc/team5401/robot/commands/feederControl.java|org/usfirst/frc/team5401/robot/commands/feederInOut.java|org/usfirst/frc/team5401/robot/commands/loadShooter.java|org/usfirst/frc/team5401/robot/commands/PopGear.java|org/usfirst/frc/team5401/robot/commands/toggleCompressor.java|org/usfirst/frc/team5401/robot/commands/unjamIn.java|org/usfirst/frc/team5401/robot/commands/unjamToggle.java|org/usfirst/frc/team5401/robot/subsystems/Climber.java|org/usfirst/frc/team5401/robot/subsystems/CompressorSubsystem.java|org/usfirst/frc/team5401/robot/subsystems/ExampleSubsystem.java|org/usfirst/frc/team5401/robot/subsystems/GearMechanism.java|org/usfirst/frc/team5401/robot/subsystems/Infeed.java|org/usfirst/frc/team5401/robot/subsystems/Loader.java|org/usfirst/frc/team5401/robot/subsystems/Unjammer.java" kind="src" path="src"/>
 	<classpathentry kind="var" path="wpilib" sourcepath="wpilib.sources"/>
 	<classpathentry kind="var" path="networktables" sourcepath="networktables.sources"/>
 	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
 	<classpathentry kind="var" path="cscore" sourcepath="cscore.sources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/navx_frc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
