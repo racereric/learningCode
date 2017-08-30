@@ -25,7 +25,7 @@ public class Robot extends IterativeRobot {
 //	public static Unjammer unjammer;
 //	public static CompressorSubsystem compressorsubsystem;
 //	public static Infeed infeed;
-//	public static Climber climber;
+	public static Climber climber;
 	public static OI oi;
 	
 	Command autonomousCommand;
@@ -43,7 +43,7 @@ public class Robot extends IterativeRobot {
 //		unjammer = new Unjammer();
 //		compressorsubsystem = new CompressorSubsystem();
 //		infeed = new Infeed();
-//		climber = new Climber();
+		climber = new Climber();
 		oi = new OI();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
