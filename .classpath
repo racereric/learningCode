@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="org/usfirst/frc/team5401/robot/commands/Climb.java|org/usfirst/frc/team5401/robot/commands/feederArmUpDown.java|org/usfirst/frc/team5401/robot/commands/feederControl.java|org/usfirst/frc/team5401/robot/commands/feederInOut.java|org/usfirst/frc/team5401/robot/commands/loadShooter.java|org/usfirst/frc/team5401/robot/commands/PopGear.java|org/usfirst/frc/team5401/robot/commands/toggleCompressor.java|org/usfirst/frc/team5401/robot/commands/unjamIn.java|org/usfirst/frc/team5401/robot/commands/unjamToggle.java" kind="src" path="src"/>
+	<classpathentry excluding="org/usfirst/frc/team5401/robot/commands/Climb.java|org/usfirst/frc/team5401/robot/commands/feederArmUpDown.java|org/usfirst/frc/team5401/robot/commands/feederControl.java|org/usfirst/frc/team5401/robot/commands/feederInOut.java|org/usfirst/frc/team5401/robot/commands/loadShooter.java|org/usfirst/frc/team5401/robot/commands/PopGear.java|org/usfirst/frc/team5401/robot/commands/toggleCompressor.java" kind="src" path="src"/>
 	<classpathentry kind="var" path="wpilib" sourcepath="wpilib.sources"/>
 	<classpathentry kind="var" path="networktables" sourcepath="networktables.sources"/>
 	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
