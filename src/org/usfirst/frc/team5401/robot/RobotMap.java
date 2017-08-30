@@ -35,8 +35,8 @@ public class RobotMap {
     //PWM Motors
 	public static final int LEFT_DRIVE_MOTOR_1    = 0;
 	public static final int RIGHT_DRIVE_MOTOR_1   = 1;
-	public static final int LEFT_DRIVE_MOTOR_2    = 3;
-	public static final int RIGHT_DRIVE_MOTOR_2   = 4;
+	public static final int LEFT_DRIVE_MOTOR_2    = 7;
+	public static final int RIGHT_DRIVE_MOTOR_2   = 8;
 	public static final int INFEEDER_BAR          = 5;
 	public static final int CLIMBER_MOTOR         = 6;
 	

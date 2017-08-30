@@ -19,7 +19,6 @@ public class DriveBase extends Subsystem {
 	double LOW_GEAR_RIGHT_DPP;
 	double HIGH_GEAR_LEFT_DPP;
 	double HIGH_GEAR_RIGHT_DPP;
-	double GYRO_OFFSET;
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -51,6 +50,11 @@ public class DriveBase extends Subsystem {
 //		gyro.reset();
 	}
 	
+
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    }
 	public void drive(double leftDriveDesired, double rightDriveDesired){
 		leftDrive1.set(leftDriveDesired);
 		rightDrive1.set(-1* rightDriveDesired);
@@ -113,9 +117,5 @@ public class DriveBase extends Subsystem {
 	    return currentAngle;
 	}
 */	
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
 }
 
