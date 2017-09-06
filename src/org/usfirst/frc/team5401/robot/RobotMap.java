@@ -50,13 +50,12 @@ public class RobotMap {
 	public static final int PCM_ID = 0;
 	public static final int SHIFTER_IN      = 0;
 	public static final int SHIFTER_OUT     = 1;
-	public static final int GEAR_DOOR_CLOSE = 2;
-	public static final int GEAR_DOOR_OPEN  = 3;
+	public static final int INFEED_IN       = 2;
+	public static final int INFEED_OUT      = 3;
 	public static final int UNJAM_IN        = 4;
 	public static final int UNJAM_OUT       = 5;
-	public static final int INFEED_IN       = 6;
-	public static final int INFEED_OUT      = 7;
-	
+	public static final int GEAR_DOOR_CLOSE = 6;
+	public static final int GEAR_DOOR_OPEN  = 7;
 	//Analog
 	public static final int PRESSURE_SENSOR  = 0;
 	
