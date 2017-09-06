@@ -19,7 +19,7 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-	public static DriveBase driveBase;
+//	public static DriveBase driveBase;
 //	public static Loader loader;
 	public static GearMechanism gearMechanism;
 //	public static Unjammer unjammer;
@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		driveBase = new DriveBase();
+//		driveBase = new DriveBase();
 //		loader = new Loader();
 		gearMechanism = new GearMechanism();
 //		unjammer = new Unjammer();
@@ -45,6 +45,8 @@ public class Robot extends IterativeRobot {
 //		infeed = new Infeed();
 //		climber = new Climber();
 		oi = new OI();
+		
+		chooser = new SendableChooser();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
