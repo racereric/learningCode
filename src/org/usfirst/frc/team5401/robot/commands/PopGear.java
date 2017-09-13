@@ -6,35 +6,36 @@ import org.usfirst.frc.team5401.robot.Robot;
  *
  */
 public class PopGear extends Command {
+	
+	private int input;
 
-    public PopGear() {
+    public PopGear(int inputOI) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.gearMechanism);
+    	input = inputOI;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.gearMechanism.openDoor();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.gearMechanism.gearInOut(input);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.gearMechanism.closeDoor();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.gearMechanism.closeDoor();
     }
 }

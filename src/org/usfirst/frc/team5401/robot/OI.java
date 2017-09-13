@@ -28,9 +28,9 @@ public class OI {
 	
 	//Buttons (Block1 = driver, Block2 = Operator)
 	Button driverA       = new JoystickButton(driveCtrlr, 1);
-	Button driverX       = new JoystickButton(driveCtrlr, 2);
-	Button driverY       = new JoystickButton(driveCtrlr, 3);
-	Button driverB       = new JoystickButton(driveCtrlr, 4);
+	Button driverB       = new JoystickButton(driveCtrlr, 2);
+	Button driverX       = new JoystickButton(driveCtrlr, 3);
+	Button driverY       = new JoystickButton(driveCtrlr, 4);
 	Button driveLB       = new JoystickButton(driveCtrlr, 5);
 	Button driveRB       = new JoystickButton(driveCtrlr, 6);
 	Button driveBack     = new JoystickButton(driveCtrlr, 7);
@@ -77,7 +77,9 @@ public class OI {
 //		driverA.whenPressed(new loadShooter());
 		
 		//Gear Mechanism
-//		driverX.whenPressed(new PopGear());
+		driverX.whenPressed(new PopGear(-1));
+		driverX.whenReleased(new PopGear(1));
+		
 		
 		//Unjammer
 //		operatorLB.whenPressed(new unjamIn());

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team5401.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import org.usfirst.frc.team5401.robot.RobotMap;
 //import org.usfirst.frc.team5401.robot.commands.PopGear;
@@ -27,14 +28,15 @@ public class GearMechanism extends Subsystem {
 //    	setDefaultCommand(new PopGear());
     }
     
-    public void openDoor(){
-    	enabled = true;
-    	gearPop.set(DoubleSolenoid.Value.kForward);
-    }
-    public void closeDoor(){
-    	enabled = false;
-    	gearPop.set(DoubleSolenoid.Value.kReverse);
-    }
+    public void gearInOut(int direction){
+    	if (direction == 1) {
+    		gearPop.set(DoubleSolenoid.Value.kForward);
+    		SmartDashboard.putNumber("Gear Mechanism", 1); //Gear Mechanism is in
+    	} else if (direction == -1) {
+    		gearPop.set(DoubleSolenoid.Value.kReverse);
+    		SmartDashboard.putNumber("Gear Mechanism", -1); //Gear Mechanism is out
+    	}
   
+}
 }
 
