@@ -14,16 +14,18 @@ public class Loader extends Subsystem {
 	
 	private VictorSP Conveyors;
 	private VictorSP meteringBar;
+	private double METERING_SPEED;
+	private double LOADER_SPEED;
 	
-	private double loadSpeed;
 	private boolean enabled;
 	
 	public Loader(){
 	
-	Conveyors = new VictorSP(RobotMap.conveyors);
-	meteringBar = new VictorSP(RobotMap.meteringMotor);
+	Conveyors = new VictorSP(RobotMap.HOPPER_BELTS);
+	meteringBar = new VictorSP(RobotMap.METERING_BAR);
 	
-	loadSpeed = -.8;
+	LOADER_SPEED = -0.9;
+	METERING_SPEED = -0.95;
 	enabled = false;
 
 	}
@@ -33,8 +35,8 @@ public class Loader extends Subsystem {
 	}
     	public void runLoader(){
     		enabled = true; 
-    		Conveyors.set(loadSpeed);
-    		meteringBar.set(loadSpeed);
+    		Conveyors.set(LOADER_SPEED);
+    		meteringBar.set(METERING_SPEED);
     	
     }
     	
