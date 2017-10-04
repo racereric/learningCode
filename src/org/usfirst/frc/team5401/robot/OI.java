@@ -39,9 +39,9 @@ public class OI {
 	Button driveR3       = new JoystickButton(driveCtrlr, 10);
 	
 	Button operatorA     = new JoystickButton(operatorCtrlr, 1);
-	Button operatorX     = new JoystickButton(operatorCtrlr, 2);
-	Button operatorY     = new JoystickButton(operatorCtrlr, 3);
-	Button operatorB     = new JoystickButton(operatorCtrlr, 4);
+	Button operatorB     = new JoystickButton(operatorCtrlr, 2);
+	Button operatorX     = new JoystickButton(operatorCtrlr, 3);
+	Button operatorY     = new JoystickButton(operatorCtrlr, 4);
 	Button operatorLB    = new JoystickButton(operatorCtrlr, 5);
 	Button operatorRB    = new JoystickButton(operatorCtrlr, 6);
 	Button operatorBack  = new JoystickButton(operatorCtrlr, 7);
@@ -89,8 +89,8 @@ public class OI {
 //		operatorStart.whenPressed(new toggleCompressor());
 		
 		//Climber
-//		operatorY.whenPressed(new Climb(1));
-//		operatorY.whenReleased(new Climb(0));
+		operatorY.whenPressed(new Climb(1));
+		operatorY.whenReleased(new Climb(0));
 		
 		
 	}
