@@ -19,7 +19,7 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-//	public static DriveBase driveBase;
+	public static DriveBase driveBase;
 //	public static Loader loader;
 //	public static GearMechanism gearMechanism;
 //	public static Unjammer unjammer;
@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-//		driveBase = new DriveBase();
+		driveBase = new DriveBase();
 //		loader = new Loader();
 //		gearMechanism = new GearMechanism();
 //		unjammer = new Unjammer();
