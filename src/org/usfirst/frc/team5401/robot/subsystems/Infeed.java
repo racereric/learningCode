@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
 //import org.usfirst.frc.team5401.robot.commands.feederControl;
+import org.usfirst.frc.team5401.robot.commands.feederControl;
 
 /**
  *
@@ -21,8 +22,8 @@ public class Infeed extends Subsystem {
 	private AnalogInput pressureSensor;
 	private double inputVoltage;
 	private final static double DEFAULT_VOLTS = 5.0;
-	private final int SLOPE                   = 250;
-	private final int Y_INTERCEPT             = -20;
+//	private final int SLOPE                   = 250;
+//	private final int Y_INTERCEPT             = -20;
 
 	public Infeed(){
 		feederArm = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.INFEED_IN, RobotMap.INFEED_OUT);
@@ -37,7 +38,7 @@ public class Infeed extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-  //  	setDefaultCommand(new feederControl());
+    	setDefaultCommand(new feederControl());
     }
     
     public void feedDirection(int direction){

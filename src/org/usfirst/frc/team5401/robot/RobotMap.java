@@ -35,9 +35,9 @@ public class RobotMap {
     //PWM Motors
 	public static final int LEFT_DRIVE_MOTOR_1    = 0;
 	public static final int RIGHT_DRIVE_MOTOR_1   = 1;
-	public static final int LEFT_DRIVE_MOTOR_2    = 3;
+	public static final int LEFT_DRIVE_MOTOR_2    = 2;
 	public static final int RIGHT_DRIVE_MOTOR_2   = 4;
-	public static final int INFEEDER_BAR          = 5;
+	public static final int INFEEDER_BAR          = 3;
 	public static final int CLIMBER_MOTOR         = 6;
 	
 	//Sensors
@@ -50,12 +50,12 @@ public class RobotMap {
 	public static final int PCM_ID = 0;
 	public static final int SHIFTER_IN      = 0;
 	public static final int SHIFTER_OUT     = 1;
-	public static final int GEAR_DOOR_CLOSE = 2;
-	public static final int GEAR_DOOR_OPEN  = 3;
+//	public static final int GEAR_DOOR_CLOSE = 2;
+//	public static final int GEAR_DOOR_OPEN  = 3;
 	public static final int UNJAM_IN        = 4;
 	public static final int UNJAM_OUT       = 5;
-	public static final int INFEED_IN       = 6;
-	public static final int INFEED_OUT      = 7;
+	public static final int INFEED_IN       = 3;
+	public static final int INFEED_OUT      = 2;
 	
 	//Analog
 	public static final int PRESSURE_SENSOR  = 0;
