@@ -20,11 +20,11 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 	
 	public static DriveBase driveBase;
-//	public static Loader loader;
-//	public static GearMechanism gearMechanism;
-//	public static Unjammer unjammer;
+	public static Loader loader;
+	public static GearMechanism gearMechanism;
+	public static Unjammer unjammer;
 //	public static CompressorSubsystem compressorsubsystem;
-//	public static Infeed infeed;
+	public static Infeed infeed;
 	public static Climber climber;
 	public static OI oi;
 	
@@ -38,11 +38,11 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		driveBase = new DriveBase();
-//		loader = new Loader();
-//		gearMechanism = new GearMechanism();
-//		unjammer = new Unjammer();
+		loader = new Loader();
+		gearMechanism = new GearMechanism();
+		unjammer = new Unjammer();
 //		compressorsubsystem = new CompressorSubsystem();
-//		infeed = new Infeed();
+		infeed = new Infeed();
 		climber = new Climber();
 		oi = new OI();
 		
