@@ -19,7 +19,7 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-	public static DriveBase driveBase;
+//	public static DriveBase driveBase;
 //	public static Loader loader;
 //	public static GearMechanism gearMechanism;
 	public static Unjammer unjammer;
@@ -28,8 +28,8 @@ public class Robot extends IterativeRobot {
 //	public static Climber climber;
 	public static OI oi;
 	
-	Command autonomousCommand;
-	SendableChooser chooser;
+//	Command autonomousCommand;
+//	SendableChooser chooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		driveBase = new DriveBase();
+//		driveBase = new DriveBase();
 //		loader = new Loader();
 //		gearMechanism = new GearMechanism();
 		unjammer = new Unjammer();
@@ -47,7 +47,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+//		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -78,7 +78,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
+//		autonomousCommand = (Command) chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) autonomousCommand.start();
+//		if (autonomousCommand != null) autonomousCommand.start();
 
 	}
 
@@ -106,8 +106,8 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
+//		if (autonomousCommand != null)
+//			autonomousCommand.cancel();
 	}
 
 	/**
