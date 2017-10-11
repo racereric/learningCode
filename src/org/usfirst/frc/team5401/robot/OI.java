@@ -127,7 +127,7 @@ public class OI {
 	//Feeder In/Out
 	public int getTriggers_Operator(){
 		double left  = operatorCtrlr.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);
-		double right = operatorCtrlr.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);
+		double right = operatorCtrlr.getRawAxis(RobotMap.RIGHT_TRIGGER_AXIS);
 		if (right > .1){
 			return 1;
 		}
