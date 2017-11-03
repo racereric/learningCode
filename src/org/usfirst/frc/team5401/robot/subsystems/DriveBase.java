@@ -1,10 +1,13 @@
 package org.usfirst.frc.team5401.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
+
+import com.kauailabs.navx.frc.AHRS;
 
 //import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.Encoder;
@@ -31,7 +34,7 @@ public class DriveBase extends Subsystem {
 	
 	private Encoder leftEncoder;
 	private Encoder rightEncoder;
-//	AHRS gyro;
+	AHRS navxGyro;
 	
 	public DriveBase(){
 		LOW_GEAR_LEFT_DPP  = -.0189249;
@@ -46,8 +49,25 @@ public class DriveBase extends Subsystem {
 		leftEncoder = new Encoder(RobotMap.LEFT_ENC_A, RobotMap.LEFT_ENC_B, true, Encoder.EncodingType.k4X);
 		rightEncoder = new Encoder(RobotMap.RIGHT_ENC_A, RobotMap.RIGHT_ENC_B, true, Encoder.EncodingType.k4X);
 		
-//		gyro = new AHRS(SerialPort.Port.kMXP);
-//		gyro.reset();
+		navxGyro = new AHRS(SerialPort.Port.kMXP);
+		navxGyro.reset();
+		
+		SmartDashboard.putString("Transmission_text", "Transmission");
+		SmartDashboard.putString("HighGear_text", "GREEN = High");
+		SmartDashboard.putString("LowGear_text" , "RED = Low");
+		if ((DoubleSolenoid.Value.kForward).equals(gearShift.get())){
+			SmartDashboard.putNumber("Transmission", -1); //Transmisison is High
+		} else {
+			SmartDashboard.putNumber("Transmission", 1); //Transmisison is Low
+		}
+		
+		SmartDashboard.putNumber("Robot Velocity", 0);
+		SmartDashboard.putNumber("Gyro", reportGyro());
+		
+		SmartDashboard.putNumber("Left Enc Raw" , leftEncoder.get());
+		SmartDashboard.putNumber("Right Enc Raw", rightEncoder.get());
+		SmartDashboard.putNumber("Left Enc Adj" , leftEncoder.getDistance());
+		SmartDashboard.putNumber("Right Enc Adj", rightEncoder.getDistance());
 	}
 	
 
@@ -60,25 +80,32 @@ public class DriveBase extends Subsystem {
 		rightDrive1.set(-1* rightDriveDesired);
 		leftDrive2.set(leftDriveDesired);
 		rightDrive2.set(-1* rightDriveDesired);
+		
+    	SmartDashboard.putNumber("Left Enc Raw" , leftEncoder.get());
+		SmartDashboard.putNumber("Right Enc Raw", rightEncoder.get());
+		SmartDashboard.putNumber("Left Enc Adj" , leftEncoder.getDistance());
+		SmartDashboard.putNumber("Right Enc Adj", rightEncoder.getDistance());
 	}
 	
 	public void Stop(){
-		leftDrive1.stopMotor();
-		leftDrive2.stopMotor();
-		rightDrive1.stopMotor();
-		rightDrive2.stopMotor();
+		leftDrive1.set(0);
+		leftDrive2.set(0);
+		rightDrive1.set(0);
+		rightDrive2.set(0);
 	}
 	
 	public void shiftLowToHigh(){
 		gearShift.set(DoubleSolenoid.Value.kForward);
 		leftEncoder.setDistancePerPulse(HIGH_GEAR_LEFT_DPP);
 		rightEncoder.setDistancePerPulse(HIGH_GEAR_RIGHT_DPP);
+    	SmartDashboard.putNumber("Transmission", -1);
 	}
 	
 	public void shiftHighToLow(){
 		gearShift.set(DoubleSolenoid.Value.kReverse);
 		leftEncoder.setDistancePerPulse(LOW_GEAR_LEFT_DPP);
 		rightEncoder.setDistancePerPulse(LOW_GEAR_RIGHT_DPP);
+    	SmartDashboard.putNumber("Transmission", 1);
 	}
 	
 	public double getVelocity(){
@@ -97,12 +124,16 @@ public class DriveBase extends Subsystem {
 	}
 	
 	public double getEncDist(){
-		double rawDistLeft  = leftEncoder.get();
-		double rawDistRight = rightEncoder.get();
-		double leftDistance = leftEncoder.getDistance();
-		double rightDistance = rightEncoder.getDistance();
-		double encoderDistance = (leftDistance + rightDistance)/2;
-		return encoderDistance;
+    	double leftDistanceRaw = -1* leftEncoder.get();
+    	double rightDistanceRaw = rightEncoder.get();
+    	SmartDashboard.putNumber("Left Enc Raw", leftDistanceRaw);
+    	SmartDashboard.putNumber("Right Enc Raw", rightDistanceRaw);
+    	double leftDistance = leftEncoder.getDistance();
+    	double rightDistance = -1* rightEncoder.getDistance();
+    	SmartDashboard.putNumber("Left Enc Adj", leftDistance);
+    	SmartDashboard.putNumber("Right Enc Adj", rightDistance);
+    	double encoderDistance = (leftDistance + rightDistance)/2;
+    	return encoderDistance;
 	}
 	
 	public void resetEncoders(){
@@ -110,12 +141,12 @@ public class DriveBase extends Subsystem {
 		rightEncoder.reset();
 	}
 	
-/*	public double reportGyro(){
-		double currentAngle = gyro.getAngle();
-	    double currentPitch = gyro.getPitch();
-	    double currentRoll  = gyro.currentRoll();
+	public double reportGyro(){
+		double currentAngle = navxGyro.getAngle();
+	    double currentPitch = navxGyro.getPitch();
+	    double currentRoll  = navxGyro.getRoll();
 	    return currentAngle;
 	}
-*/	
+	
 }
 

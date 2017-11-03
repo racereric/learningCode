@@ -44,10 +44,10 @@ public class RobotMap {
 	public static final int RIGHT_DRIVE_MOTOR_2   = 8;
 	
 	//Sensors
-	public static final int LEFT_ENC_A  = 0;
-	public static final int RIGHT_ENC_A = 1;
-	public static final int LEFT_ENC_B  = 2;
-	public static final int RIGHT_ENC_B = 3;
+	public static final int LEFT_ENC_A  = 2;
+	public static final int RIGHT_ENC_A = 4;
+	public static final int LEFT_ENC_B  = 3;
+	public static final int RIGHT_ENC_B = 5;
 	
 	//Pneumatics
 	public static final int PCM_ID = 0;

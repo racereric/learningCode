@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team5401.robot.autonomous.*;
 import org.usfirst.frc.team5401.robot.commands.xboxMove;
 import org.usfirst.frc.team5401.robot.subsystems.*;
 
@@ -47,8 +48,15 @@ public class Robot extends IterativeRobot {
 		climber = new Climber();
 		oi = new OI();
 		
-		// chooser.addObject("My Auto", new MyAutoCommand());
 		chooser = new SendableChooser();
+		chooser.addDefault("DoNothing", new DoNothing());
+		chooser.addObject("DriveStraight", new DriveStraight());
+		chooser.addObject("DriveForwardBack", new DriveForwardBack());
+		chooser.addObject("FullSpin", new FullSpin());
+		chooser.addObject("LoaderAndDrive", new LoaderAndDrive());
+		chooser.addObject("StraightTurnStraight", new StraightTurnStraight());
+		chooser.addObject("SpinDriveSpin", new SpinDriveSpin());
+		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -99,6 +107,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Gyro", Robot.driveBase.reportGyro());
 	}
 
 	@Override
@@ -118,6 +127,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Gyro", Robot.driveBase.reportGyro());
 	}
 
 	/**
