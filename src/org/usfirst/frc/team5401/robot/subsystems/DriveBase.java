@@ -1,17 +1,16 @@
 package org.usfirst.frc.team5401.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-
 import org.usfirst.frc.team5401.robot.RobotMap;
 
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 //import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SerialPort;
+import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -56,9 +55,9 @@ public class DriveBase extends Subsystem {
 		SmartDashboard.putString("HighGear_text", "GREEN = High");
 		SmartDashboard.putString("LowGear_text" , "RED = Low");
 		if ((DoubleSolenoid.Value.kForward).equals(gearShift.get())){
-			SmartDashboard.putNumber("Transmission", -1); //Transmisison is High
+			SmartDashboard.putNumber("Transmission", -1); //Transmission is High
 		} else {
-			SmartDashboard.putNumber("Transmission", 1); //Transmisison is Low
+			SmartDashboard.putNumber("Transmission", 1); //Transmission is Low
 		}
 		
 		SmartDashboard.putNumber("Robot Velocity", 0);
