@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot {
 	public static Shooter shooter;
 	public static GearMechanism gearMechanism;
 	public static Unjammer unjammer;
-//	public static CompressorSubsystem compressorsubsystem;
+	public static CompressorSubsystem compressorsubsystem;
 	public static Infeed infeed;
 	public static Climber climber;
 	public static OI oi;
@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter();
 		gearMechanism = new GearMechanism();
 		unjammer = new Unjammer();
-//		compressorsubsystem = new CompressorSubsystem();
+		compressorsubsystem = new CompressorSubsystem();
 		infeed = new Infeed();
 		climber = new Climber();
 		oi = new OI();

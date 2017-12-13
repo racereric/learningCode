@@ -76,6 +76,17 @@ public class OI {
 		//Loader
 		driverA.whenPressed(new loadShooter());
 		
+		//Flywheels
+		operatorB.whenPressed(new FlywheelControl());
+		operatorB.whenReleased(new FlywheelControl());
+		
+		//Shooter %VBus Override
+		operatorBack.whenPressed(new ShooterToggle());
+		
+		//Shooter CeaseFire
+		operatorR3.whenPressed(new CeaseFire());
+		
+		
 		//Gear Mechanism
 		driverX.whenPressed(new PopGear(1));
 		driverX.whenReleased(new PopGear(-1));
