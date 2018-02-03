@@ -3,8 +3,8 @@ package org.usfirst.frc.team5401.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.ctre.CANTalon;
-import com.ctre.CANTalon.TalonControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
  *
@@ -12,8 +12,8 @@ import com.ctre.CANTalon.TalonControlMode;
 public class Shooter extends Subsystem {
 
 	//Declare Speed Controller
-	CANTalon _talonMaster;
-	CANTalon _talonSlave;
+	TalonSRX _talonMaster;
+	TalonSRX _talonSlave;
 	
 	private double VOLTAGE_MOTOR_SPEED = -7.8;
 	private double PID_MOTOR_SPEED = -19900;
@@ -30,11 +30,11 @@ public class Shooter extends Subsystem {
 	private int THRESH;
 	
 	public Shooter(){
-		_talonMaster = new CANTalon(0);
-		_talonSlave = new CANTalon(1);
+		_talonMaster = new TalonSRX(0);
+		_talonSlave = new TalonSRX(1);
 		
-		_talonMaster.changeControlMode(TalonControlMode.Speed);
-		_talonSlave.changeControlMode(CANTalon.TalonControlMode.Follower);
+		_talonMaster.set(ControlMode.Velocity);
+		_talonSlave.changeControlMode(TalonSRX.ControlMode.Follower);
 		_talonSlave.set(_talonMaster.getDeviceID());
 		
 		SmartDashboard.putNumber("Motor Speed", MOTOR_SPEED);
@@ -80,11 +80,11 @@ public class Shooter extends Subsystem {
     
     public void startMotors(){
     	if(PIDenabled){
-    		_talonMaster.changeControlMode(TalonControlMode.Speed);
+    		_talonMaster.changeControlMode(ControlMode.Speed);
     		System.out.print("Mode: Speed");
     	}
     	else {
-    		_talonMaster.changeControlMode(TalonControlMode.Voltage);
+    		_talonMaster.changeControlMode(ControlMode.Voltage);
     		System.out.print("Mode: Voltage");    		
     	}
     	
@@ -107,7 +107,7 @@ public class Shooter extends Subsystem {
     }
     
     public void stop(){
-    	_talonMaster.changeControlMode(TalonControlMode.PercentVbus);
+    	_talonMaster.changeControlMode(ControlMode.PercentVbus);
     	_talonMaster.set(0);
     	compressorEnabled = false;
     }
@@ -135,13 +135,13 @@ public class Shooter extends Subsystem {
     
     public void overrideShooter(){
     	if(PIDenabled){
-    		_talonMaster.changeControlMode(TalonControlMode.Voltage);
+    		_talonMaster.changeControlMode(ControlMode.PercentOutput);
     		MOTOR_SPEED = VOLTAGE_MOTOR_SPEED;
     		PIDenabled = false;
     		System.out.println("Switched to Voltage");
     	}
     	else{
-    		_talonMaster.changeControlMode(TalonControlMode.Speed);
+    		_talonMaster.changeControlMode(ControlMode.Velocity);
     		MOTOR_SPEED = PID_MOTOR_SPEED;
     		PIDenabled = true;
     		System.out.println("Switched to Speed");
@@ -151,7 +151,7 @@ public class Shooter extends Subsystem {
     }
     	
     public void printReadyToShoot(){
-    		if(_talonMaster.getEncVelocity() < MOTOR_SPEED + THRESH || _talonMaster.getEncVelocity() > MOTOR_SPEED - THRESH){
+    		if(_talonMaster.getQuadratureVelocity() < MOTOR_SPEED + THRESH || _talonMaster.getEncVelocity() > MOTOR_SPEED - THRESH){
     			SmartDashboard.putBoolean("Ready to Shoot", true);
     		}
     		else{
