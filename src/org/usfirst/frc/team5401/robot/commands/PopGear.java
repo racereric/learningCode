@@ -1,13 +1,15 @@
 package org.usfirst.frc.team5401.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5401.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  */
 public class PopGear extends Command {
 	
-	private int input;
+	int input;
 
     public PopGear(int inputOI) {
         // Use requires() here to declare subsystem dependencies

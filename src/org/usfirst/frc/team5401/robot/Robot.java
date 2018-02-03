@@ -4,12 +4,13 @@ package org.usfirst.frc.team5401.robot;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.autonomous.*;
-import org.usfirst.frc.team5401.robot.commands.xboxMove;
+import org.usfirst.frc.team5401.robot.commands.XboxMove;
 import org.usfirst.frc.team5401.robot.subsystems.*;
 
 /**
@@ -21,15 +22,18 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-	public static DriveBase driveBase;
+
+	public static DriveBase drivebase;
 	public static Loader loader;
 	public static Shooter shooter;
 	public static GearMechanism gearMechanism;
 	public static Unjammer unjammer;
 	public static CompressorSubsystem compressorsubsystem;
-	public static Infeed infeed;
 	public static Climber climber;
+	public static Infeed infeed;
+	
 	public static OI oi;
+	
 	
 	Command autonomousCommand;
 	SendableChooser chooser;
@@ -40,13 +44,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		driveBase = new DriveBase();
+		drivebase = new DriveBase();
 		loader = new Loader();
 		shooter = new Shooter();
 		gearMechanism = new GearMechanism();
 		unjammer = new Unjammer();
 		compressorsubsystem = new CompressorSubsystem();
-		infeed = new Infeed();
 		climber = new Climber();
 		oi = new OI();
 		
@@ -109,7 +112,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Gyro", Robot.driveBase.reportGyro());
+		//SmartDashboard.putNumber("Gyro", Robot.DriveBase.reportGyro());
 	}
 
 	@Override
@@ -120,7 +123,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		Scheduler.getInstance().add(new xboxMove());
+		Scheduler.getInstance().add(new XboxMove());
 	}
 
 	/**
@@ -129,7 +132,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-        SmartDashboard.putNumber("Gyro", Robot.driveBase.reportGyro());
+       // SmartDashboard.putNumber("Gyro", Robot.driveBase.reportGyro());
 	}
 
 	/**

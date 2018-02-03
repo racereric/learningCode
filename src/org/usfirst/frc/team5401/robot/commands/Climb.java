@@ -12,6 +12,8 @@ public class Climb extends Command {
 	private int input;
 
     public Climb(int direction) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     	requires(Robot.climber);
     	input = direction;
     }
@@ -20,11 +22,9 @@ public class Climb extends Command {
     protected void initialize() {
     	if (input == 1){
     		Robot.climber.climbUp();
-    	}
-    	else if (input == 0){
-    		Robot.climber.climbStop();
-    	}
-    	
+        }else if (input == 0) {
+        	Robot.climber.climbStop();
+        }
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -44,5 +44,6 @@ public class Climb extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     	Robot.climber.climbStop();
+    	System.out.println("Climb Interrupted");
     }
 }
