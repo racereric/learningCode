@@ -168,13 +168,7 @@ public class DriveBase extends Subsystem {
     		return currentAngle;
     }
     	
-    	public void recalibrateGyro(){
-    		navxGyro.calibrate();
-    	}
-    	
-    	public void resetGyro(){
-    		navxGyro.reset();
-    	}
+
     	
     		
     		

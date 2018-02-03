@@ -76,8 +76,32 @@ public class XboxMove extends Command {
     		right = 0;
     	} else if (!turn){
     		if (slew > RobotMap.DRIVE_THRESHHOLD){
-    	}
-    	}
+    			left  = (throttle - reverse) * sensitivity;
+    			right = (throttle - reverse) * sensitivity * (1 - slew);
+    		} else if (slew < (-1 *RobotMap.DRIVE_THRESHHOLD)){
+    			left  = (throttle - reverse) * sensitivity * (1 + slew);
+    			right = (throttle - reverse) * sensitivity;
+    		} else {
+    			left  = (throttle - reverse) * sensitivity;
+    			right = (throttle - reverse) * sensitivity;
+    		}
+    	} else {
+    		if (false){
+    			slew *= -1;
+    		}
+    		if (Math.abs(slew) > RobotMap.DRIVE_THRESHHOLD){
+    			left  = RobotMap.DRIVE_SPIN_SENSITIVITY * slew;
+    			right = RobotMap.DRIVE_SPIN_SENSITIVITY * slew * -1;
+    				
+    			}
+    		}
+    	
+    	Robot.drivebase.drive(left, right);
+    	
+    	Robot.drivebase.getEncoderDistance();
+    	
+    	velocitySample2 = Robot.drivebase.getVelocityOfRobot();
+    	
     		
     	}
     
@@ -90,10 +114,14 @@ public class XboxMove extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.drivebase.stop();
+    	System.out.println("XboxMove end()");
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	Robot.drivebase.stop();
+    	System.out.println("XboxMove Interrupted");
     }
 }
