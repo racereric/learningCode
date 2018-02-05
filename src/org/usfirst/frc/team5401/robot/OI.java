@@ -44,7 +44,7 @@ public class OI {
 	Button xboxStart_Operator		= new JoystickButton(xboxController_Operator, 8);
 	Button xboxL3_Operator		  	= new JoystickButton(xboxController_Operator, 9);
 	Button xboxR3_Operator		  	= new JoystickButton(xboxController_Operator, 10);
-	
+
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
@@ -88,7 +88,7 @@ public class OI {
 		xboxStart_Operator.whenPressed(new CompressorToggle());
 		
 		//Override for starting the XboxMove command
-		xboxX_Driver.whenPressed(new XboxMove());
+		//xboxX_Driver.whenPressed(new XboxMove());
 		
 	}
 	

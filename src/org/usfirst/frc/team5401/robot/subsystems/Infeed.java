@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
+
 public class Infeed extends Subsystem {
 	
 	private DoubleSolenoid feederArm;
