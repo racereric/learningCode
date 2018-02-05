@@ -3,39 +3,30 @@ package org.usfirst.frc.team5401.robot.commands;
 import org.usfirst.frc.team5401.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class CeaseFire extends Command {
+public class UnjamIn extends Command {
 
-    public CeaseFire() {
+    public UnjamIn() {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.driveBase);
-        requires(Robot.shooter);
-        requires(Robot.compressorsubsystem);
-        requires(Robot.loader);
-    }
+        // eg. requires(chassis);
+    	requires(Robot.unjammer);
+    	}
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	System.out.print("CeaseFire Starting!");
-    	SmartDashboard.putBoolean("Auto Targeting", false);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.stop();
-    	Robot.compressorsubsystem.startCompressor();
-    	Robot.loader.stopLoader();
-    	Scheduler.getInstance().add(new XboxMove());
+    	Robot.unjammer.unjammerIn();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

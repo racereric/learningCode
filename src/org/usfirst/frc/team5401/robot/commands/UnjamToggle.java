@@ -3,31 +3,29 @@ package org.usfirst.frc.team5401.robot.commands;
 import org.usfirst.frc.team5401.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class FlywheelControl extends Command {
+public class UnjamToggle extends Command {
+	
+	private int input;
 
-    public FlywheelControl() {
+    public UnjamToggle(int direction) {
         // Use requires() here to declare subsystem dependencies
-        requires(Robot.shooter);
-        requires(Robot.compressorsubsystem);
+    	requires(Robot.unjammer);
+    	input = direction;
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.shooter.switchState();
-    	
-    	if(Robot.shooter.isEnabled()){
-    		Robot.compressorsubsystem.stopCompressor();
+    	if (input == 1) {
+    		Robot.unjammer.unjammerIn();
+    	} else if (input == -1 ){
+    		Robot.unjammer.unjammerOut();
     	}
-    	else{
-    		Robot.compressorsubsystem.startCompressor();
-    	}
-    	
-    	SmartDashboard.putBoolean("Shooter On/Off", Robot.shooter.isEnabled());
+    		
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -46,9 +44,5 @@ public class FlywheelControl extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.shooter.stop();
-    	Robot.compressorsubsystem.stopCompressor();
-    	SmartDashboard.putBoolean("Shooter On/Off", Robot.shooter.isEnabled());
-    	System.out.println("Flywheel Control Interrupted");
     }
 }

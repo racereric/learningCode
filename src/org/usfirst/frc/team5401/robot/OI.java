@@ -19,8 +19,8 @@ public class OI {
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
-	Joystick xboxController_Driver   = new Joystick(RobotMap.XBOX_CONTROLLER_DRIVER);
-	Joystick xboxController_Operator = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR); 
+	Joystick xboxController_Driver    = new Joystick(RobotMap.XBOX_CONTROLLER_DRIVER);
+	Joystick xboxController_Operator  = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR); 
 	
 	//Buttons (Block1 = driver, Block2 = Operator)
 	Button xboxA_Driver			  = new JoystickButton(xboxController_Driver, 1);
@@ -44,68 +44,52 @@ public class OI {
 	Button xboxStart_Operator		= new JoystickButton(xboxController_Operator, 8);
 	Button xboxL3_Operator		  	= new JoystickButton(xboxController_Operator, 9);
 	Button xboxR3_Operator		  	= new JoystickButton(xboxController_Operator, 10);
-	
-    // There are a few additional built in buttons you can use. Additionally,
-    // by subclassing Button you can create custom triggers and bind those to
-    // commands the same as any other Button.
-    
-    //// TRIGGERING COMMANDS WITH BUTTONS
-    // Once you have a button, it's trivial to bind it to a button in one of
-    // three ways:
-    
-    // Start the command when the button is pressed and let it run the command
-    // until it is finished as determined by it's isFinished method.
-    // button.whenPressed(new ExampleCommand());
-    
-    // Run the command while the button is being held down and interrupt it once
-    // the button is released.
-    // button.whileHeld(new ExampleCommand());
-    
-    // Start the command when the button is released  and let it run the command
-    // until it is finished as determined by it's isFinished method.
-    // button.whenReleased(new ExampleCommand());
-	
+
+	// There are a few additional built in buttons you can use. Additionally,
+	// by subclassing Button you can create custom triggers and bind those to
+	// commands the same as any other Button.
+
+	//// TRIGGERING COMMANDS WITH BUTTONS
+	// Once you have a button, it's trivial to bind it to a button in one of
+	// three ways:
+
+	// Start the command when the button is pressed and let it run the command
+	// until it is finished as determined by it's isFinished method.
+	// button.whenPressed(new ExampleCommand());
+
+	// Run the command while the button is being held down and interrupt it once
+	// the button is released.
+	// button.whileHeld(new ExampleCommand());
+
+	// Start the command when the button is released and let it run the command
+	// until it is finished as determined by it's isFinished method.
+	// button.whenReleased(new ExampleCommand());
+
 	public OI(){
 
-		//Shoot (Loader) Button
+		//Loader
 		xboxA_Driver.whenPressed(new loadShooter());
 		
-		//Climber Button
-		xboxY_Operator.whenPressed(new Climb(1));
-		xboxY_Operator.whenReleased(new Climb(0));
+		//Gear Mechanism
+		xboxX_Driver.whenPressed(new PopGear(1));
+		xboxX_Driver.whenReleased(new PopGear(-1));
 		
-		//Flywheels Button
-		xboxB_Operator.whenPressed(new FlywheelControl());
-		xboxB_Operator.whenReleased(new FlywheelControl());
-		//AutoTarget Button
-//		xboxA_Operator.whenPressed(new AutoTargetAndShoot(0, false, true)); //should be sending 0
+		//Unjammer
+		//xboxLeftBumper_Operator.whenPressed(new UnjamIn());
 		
-		//Gear Mechanism Button
-		xboxX_Driver.whenPressed(new PopGear(-1)); //out
-		xboxX_Driver.whenReleased(new PopGear(1)); //in
-		
-		//Unjammer Button
 		//xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
 		//xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
 
-		//Unjammer In Only Button
-		//xboxLeftBumper_Operator.whenPressed(new UnjamIn());
+		//Climber Button
+		xboxY_Operator.whenPressed(new Climb(1));
+		xboxY_Operator.whenReleased(new Climb(0));
 
-		//Compressor Override
+		//Compressor
 		xboxStart_Operator.whenPressed(new CompressorToggle());
-		
-		//Shooter %VBus Override
-		xboxBack_Operator.whenPressed(new ShooterToggle());
-		
-		//Cease Fire
-		xboxR3_Operator.whenPressed(new CeaseFire());
 		
 		//Override for starting the XboxMove command
 		//xboxX_Driver.whenPressed(new XboxMove());
 		
-		//XXX TEMPORARY BUTTON
-			//For testing pneumatic shifter on drivebase
-//		xboxBack_Driver.toggleWhenPressed(new TestShift());
 	}
 	
 	/**Method Naming: 'read' = Analog; 'get' = Digital **/
@@ -115,17 +99,48 @@ public class OI {
 	}
 	
 	public double readLeftTrigger_Driver(){
-		return xboxController_Driver.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);		
+		return xboxController_Driver.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);
 	}
 	
 	public double readRightTrigger_Driver(){
 		return xboxController_Driver.getRawAxis(RobotMap.RIGHT_TRIGGER_AXIS);
 	}
 	
+	//Feeder Up/Down
+	public int getXboxLeftY_Operator(){
+		double value = xboxController_Operator.getRawAxis(RobotMap.LEFT_STICK_AXIS_Y);
+		if (value > .5){
+			return -1;
+		}
+		else if (value < -.5){
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	//Feeder In/Out
+	public int getTriggers_Operator(){
+		double left  = xboxController_Operator.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);
+		double right = xboxController_Operator.getRawAxis(RobotMap.RIGHT_TRIGGER_AXIS);
+		if (right > .1){
+			return 1;
+		}
+		else if (left > .1){
+			return -1;
+		}
+		else {
+			return  0;
+		}
+	}
+	
+	//Precision
 	public boolean getPrecision_Driver(){
 		return xboxController_Driver.getRawButton(5);
 	}
 	
+	//Brake
 	public boolean getBrake_Driver(){
 		return xboxController_Driver.getRawButton(6);
 	}
@@ -138,42 +153,13 @@ public class OI {
 		return xboxController_Driver.getRawButton(2);
 	}
 	
-	//For GearMechanism
-	public int getXboxRightStickY_Driver(){ //TODO remove
-		double value = xboxController_Driver.getRawAxis(RobotMap.RIGHT_STICK_AXIS_Y);
-		if (value > .5){
-			return 1;
-		} else if (value < -.5){
-			return -1;
-		} else {
-			return 0;
-		}
+	//Low gear
+	public boolean getBack_Driver(){
+		return xboxController_Driver.getRawButton(RobotMap.XBOX_BACK_DRIVER);
 	}
-	
-
-	//For Feeder Up/Down
-	public int getXboxLeftStickY_Operator(){
-		double value = xboxController_Operator.getRawAxis(RobotMap.LEFT_STICK_AXIS_Y);
-		if (value > .5){//this is controller down
-			return -1;// so down as in negative
-		} else if (value < -.5){//this is controller up
-			return 1;// so up as in positive
-		} else {
-			return 0;
-		}
-	}
-	
-	//For Feeder In/Out
-	public int getXboxTriggers_Operator(){
-		double left  = xboxController_Operator.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);
-		double right = xboxController_Operator.getRawAxis(RobotMap.RIGHT_TRIGGER_AXIS);
-		if (right > .1){ 
-			return 1;
-		} else if (left > .1){//<--left is in
-			return -1;
-		} else {
-			return 0;
-		}
+	//High gear
+	public boolean getStart_Driver(){
+		return xboxController_Driver.getRawButton(RobotMap.XBOX_START_DRIVER);
 	}
 	
 	//Gear Shift to Low
