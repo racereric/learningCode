@@ -25,7 +25,6 @@ public class Robot extends IterativeRobot {
 
 	public static DriveBase drivebase;
 	public static Loader loader;
-	public static Shooter shooter;
 	public static GearMechanism gearMechanism;
 	public static Unjammer unjammer;
 	public static CompressorSubsystem compressorsubsystem;
@@ -46,7 +45,6 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		drivebase = new DriveBase();
 		loader = new Loader();
-		shooter = new Shooter();
 		gearMechanism = new GearMechanism();
 		unjammer = new Unjammer();
 		compressorsubsystem = new CompressorSubsystem();
