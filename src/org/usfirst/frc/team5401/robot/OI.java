@@ -76,17 +76,6 @@ public class OI {
 		//Loader
 		xboxA_Driver.whenPressed(new loadShooter());
 		
-		//Flywheels
-		xboxB_Operator.whenPressed(new FlywheelControl());
-		xboxB_Operator.whenReleased(new FlywheelControl());
-		
-		//Shooter %VBus Override
-		xboxBack_Operator.whenPressed(new ShooterToggle());
-		
-		//Shooter CeaseFire
-		xboxR3_Operator.whenPressed(new CeaseFire());
-		
-		
 		//Gear Mechanism
 		xboxX_Driver.whenPressed(new PopGear(1));
 		xboxX_Driver.whenReleased(new PopGear(-1));
