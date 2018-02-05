@@ -11,17 +11,18 @@ import org.usfirst.frc.team5401.robot.RobotMap;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    //// CREATING BUTTONS
-    // One type of button is a joystick button which is any button on a joystick.
-    // You create one by telling it which joystick it's on and which button
-    // number it is.
-    // Joystick stick = new Joystick(port);
-    // Button button = new JoystickButton(stick, buttonNumber);
-    
-	Joystick xboxController_Driver = new Joystick(RobotMap.XBOX_CONTROLLER_DRIVER);
-	Joystick xboxController_Operator = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR);
+	//// CREATING BUTTONS
+	// One type of button is a joystick button which is any button on a
+	//// joystick.
+	// You create one by telling it which joystick it's on and which button
+	// number it is.
+	// Joystick stick = new Joystick(port);
+	// Button button = new JoystickButton(stick, buttonNumber);
 	
-	//Buttons
+	Joystick xboxController_Driver   = new Joystick(RobotMap.XBOX_CONTROLLER_DRIVER);
+	Joystick xboxController_Operator = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR); 
+	
+	//Buttons (Block1 = driver, Block2 = Operator)
 	Button xboxA_Driver			  = new JoystickButton(xboxController_Driver, 1);
 	Button xboxB_Driver			  = new JoystickButton(xboxController_Driver, 2);
 	Button xboxX_Driver			  = new JoystickButton(xboxController_Driver, 3);
@@ -44,8 +45,6 @@ public class OI {
 	Button xboxL3_Operator		  	= new JoystickButton(xboxController_Operator, 9);
 	Button xboxR3_Operator		  	= new JoystickButton(xboxController_Operator, 10);
 	
-	
-	
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
     // commands the same as any other Button.
@@ -66,7 +65,6 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
 	
-	//Buttons
 	public OI(){
 
 		//Shoot (Loader) Button
@@ -87,11 +85,11 @@ public class OI {
 		xboxX_Driver.whenReleased(new PopGear(1)); //in
 		
 		//Unjammer Button
-		xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
-		xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
+		//xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
+		//xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
 
 		//Unjammer In Only Button
-		xboxLeftBumper_Operator.whenPressed(new UnjamIn());
+		//xboxLeftBumper_Operator.whenPressed(new UnjamIn());
 
 		//Compressor Override
 		xboxStart_Operator.whenPressed(new CompressorToggle());
@@ -103,7 +101,7 @@ public class OI {
 		xboxR3_Operator.whenPressed(new CeaseFire());
 		
 		//Override for starting the XboxMove command
-		xboxX_Driver.whenPressed(new XboxMove());
+		//xboxX_Driver.whenPressed(new XboxMove());
 		
 		//XXX TEMPORARY BUTTON
 			//For testing pneumatic shifter on drivebase

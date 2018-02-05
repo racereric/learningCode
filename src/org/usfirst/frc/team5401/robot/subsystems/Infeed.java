@@ -1,13 +1,14 @@
 package org.usfirst.frc.team5401.robot.subsystems;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
-import org.usfirst.frc.team5401.robot.commands.FeederControl;
+//import org.usfirst.frc.team5401.robot.commands.FeederControl;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc.team5401.robot.RobotMap;
 
 /**
  *
@@ -40,7 +41,8 @@ public class Infeed extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-    	setDefaultCommand(new FeederControl());
+        //setDefaultCommand(new MySpecialCommand());
+    	//setDefaultCommand(new FeederControl());
     }
     
     public void feederDirection(int feedDirection){
