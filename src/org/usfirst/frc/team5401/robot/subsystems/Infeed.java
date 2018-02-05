@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
 //import org.usfirst.frc.team5401.robot.commands.feederControl;
-import org.usfirst.frc.team5401.robot.commands.FeederControl;
 
 /**
  *
