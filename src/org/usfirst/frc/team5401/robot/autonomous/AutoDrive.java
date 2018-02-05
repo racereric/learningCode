@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team5401.robot.Robot;
 import org.usfirst.frc.team5401.robot.subsystems.DriveBase;
 import org.usfirst.frc.team5401.robot.RobotMap;
-import org.usfirst.frc.team5401.robot.commands.xboxMove;
+import org.usfirst.frc.team5401.robot.commands.XboxMove;
 
 
 /**
