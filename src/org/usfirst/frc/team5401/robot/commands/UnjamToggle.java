@@ -7,24 +7,25 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Climb extends Command {
+public class UnjamToggle extends Command {
 	
 	private int input;
 
-    public Climb(int direction) {
+    public UnjamToggle(int direction) {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.climber);
+    	requires(Robot.unjammer);
     	input = direction;
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if (input == 1){
-    		Robot.climber.climbUp();
-        }else if (input == 0) {
-        	Robot.climber.climbStop();
-        }
+    	if (input == 1) {
+    		Robot.unjammer.unjammerIn();
+    	} else if (input == -1 ){
+    		Robot.unjammer.unjammerOut();
+    	}
+    		
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,7 +44,5 @@ public class Climb extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.climber.climbStop();
-    	System.out.println("Climb Interrupted");
     }
 }

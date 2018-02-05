@@ -1,14 +1,11 @@
 package org.usfirst.frc.team5401.robot.subsystems;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
-//import org.usfirst.frc.team5401.robot.commands.FeederControl;
-
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team5401.robot.RobotMap;
 
 /**
  *
@@ -27,8 +24,8 @@ public class Infeed extends Subsystem {
 	private final int Y_INTERCEPT = -20;
 	
 	public Infeed(){
-		feederArm = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.INFEED_IN, RobotMap.INFEED_OUT);
-		feederMotor = new VictorSP(RobotMap.INFEEDER_BAR);
+		feederArm = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.INFEEDER_IN, RobotMap.INFEEDER_OUT);
+		feederMotor = new VictorSP(RobotMap.INFEEDER_MOTOR);
 		
 		FEED_SPEED = 0.9;
 		
@@ -41,7 +38,6 @@ public class Infeed extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
     	//setDefaultCommand(new FeederControl());
     }
     

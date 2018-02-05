@@ -1,15 +1,11 @@
 package org.usfirst.frc.team5401.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-
-import org.usfirst.frc.team5401.robot.commands.*;
-import org.usfirst.frc.team5401.robot.subsystems.*;
-import org.usfirst.frc.team5401.robot.RobotMap;
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.command.Command;
-
+import org.usfirst.frc.team5401.robot.commands.*;
+import org.usfirst.frc.team5401.robot.autonomous.*;
+import org.usfirst.frc.team5401.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -24,7 +20,7 @@ public class OI {
 	// Button button = new JoystickButton(stick, buttonNumber);
 	
 	Joystick xboxController_Driver    = new Joystick(RobotMap.XBOX_CONTROLLER_DRIVER);
-	Joystick xboxController_Operator = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR); 
+	Joystick xboxController_Operator  = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR); 
 	
 	//Buttons (Block1 = driver, Block2 = Operator)
 	Button xboxA_Driver			  = new JoystickButton(xboxController_Driver, 1);
@@ -49,7 +45,6 @@ public class OI {
 	Button xboxL3_Operator		  	= new JoystickButton(xboxController_Operator, 9);
 	Button xboxR3_Operator		  	= new JoystickButton(xboxController_Operator, 10);
 	
-	
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
@@ -70,9 +65,8 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 
-
 	public OI(){
-		
+
 		//Loader
 		xboxA_Driver.whenPressed(new loadShooter());
 		
@@ -85,21 +79,22 @@ public class OI {
 		
 		//xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
 		//xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
-		
-		//Compressor Override
-//		operatorStart.whenPressed(new toggleCompressor());
-		
-		//Climber
+
+		//Climber Button
 		xboxY_Operator.whenPressed(new Climb(1));
 		xboxY_Operator.whenReleased(new Climb(0));
+
+		//Compressor
+		xboxStart_Operator.whenPressed(new CompressorToggle());
 		
-		//Xbox Move Override
-		//xboxX_Driver.whenPressed(new XboxMove());
-		
+		//Override for starting the XboxMove command
+		xboxX_Driver.whenPressed(new XboxMove());
 		
 	}
-
-	public double readLeftStickX_Driver(){
+	
+	/**Method Naming: 'read' = Analog; 'get' = Digital **/
+	
+	public double readXboxLeftX_Driver(){
 		return xboxController_Driver.getRawAxis(RobotMap.LEFT_STICK_AXIS_X);
 	}
 	
@@ -124,6 +119,7 @@ public class OI {
 			return 0;
 		}
 	}
+
 	//Feeder In/Out
 	public int getTriggers_Operator(){
 		double left  = xboxController_Operator.getRawAxis(RobotMap.LEFT_TRIGGER_AXIS);
@@ -149,24 +145,31 @@ public class OI {
 		return xboxController_Driver.getRawButton(6);
 	}
 	
-	//Turn In Place
 	public boolean getTurnButton_Driver(){
 		return xboxController_Driver.getRawButton(9);
 	}
 	
-	//Invert Drive
 	public boolean getDriveInvertButton_Driver() {
 		return xboxController_Driver.getRawButton(2);
 	}
 	
 	//Low gear
 	public boolean getBack_Driver(){
-		return xboxController_Driver.getRawButton(7);
+		return xboxController_Driver.getRawButton(RobotMap.XBOX_BACK_DRIVER);
 	}
 	//High gear
 	public boolean getStart_Driver(){
-		return xboxController_Driver.getRawButton(8);
+		return xboxController_Driver.getRawButton(RobotMap.XBOX_START_DRIVER);
 	}
 	
+	//Gear Shift to Low
+	public boolean getXboxBack_Driver(){
+		return xboxController_Driver.getRawButton(RobotMap.XBOX_BACK_DRIVER);
 	}
 	
+	
+	//Gear Shift to High
+	public boolean getXboxStart_Driver(){
+		return xboxController_Driver.getRawButton(RobotMap.XBOX_START_DRIVER);
+	}
+}
