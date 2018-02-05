@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 
 import org.usfirst.frc.team5401.robot.RobotMap;
 //import org.usfirst.frc.team5401.robot.commands.feederControl;
-import org.usfirst.frc.team5401.robot.commands.feederControl;
+import org.usfirst.frc.team5401.robot.commands.FeederControl;
 
 /**
  *
@@ -38,7 +38,7 @@ public class Infeed extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new feederControl());
+    	setDefaultCommand(new FeederControl());
     }
     
     public void feedDirection(int direction){

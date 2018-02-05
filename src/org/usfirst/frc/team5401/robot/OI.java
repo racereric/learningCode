@@ -92,10 +92,10 @@ public class OI {
 		driverX.whenReleased(new PopGear(-1));
 		
 		//Unjammer
-		operatorLB.whenPressed(new unjamIn());
+		operatorLB.whenPressed(new UnjamIn());
 		
-		operatorRB.whenPressed(new unjamToggle(1));
-		operatorRB.whenReleased(new unjamToggle(-1));
+		operatorRB.whenPressed(new UnjamToggle(1));
+		operatorRB.whenReleased(new UnjamToggle(-1));
 		
 		//Compressor Override
 //		operatorStart.whenPressed(new toggleCompressor());

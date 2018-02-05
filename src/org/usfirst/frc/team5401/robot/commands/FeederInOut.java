@@ -7,33 +7,27 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class feederControl extends Command {
+public class FeederInOut extends Command {
 	
-	private int upDown;
-	private int inOut;
+	private int feederDirection;
 
-    public feederControl() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public FeederInOut(int feedDirection) {
     	requires(Robot.infeed);
+    	feederDirection = feedDirection;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.infeed.feedDirection(feederDirection);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	upDown = Robot.oi.getXboxLeftY_Operator();
-    	inOut  = Robot.oi.getTriggers_Operator();
-    	
-    	Robot.infeed.armUpDown(upDown);
-    	Robot.infeed.feedDirection(inOut);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

@@ -7,18 +7,25 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class feederInOut extends Command {
+public class UnjamToggle extends Command {
 	
-	private int feederDirection;
+	private int input;
 
-    public feederInOut(int feedDirection) {
-    	requires(Robot.infeed);
-    	feederDirection = feedDirection;
+    public UnjamToggle(int direction) {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.unjammer);
+    	input = direction;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.infeed.feedDirection(feederDirection);
+    	if(input == 1){
+    		Robot.unjammer.unjamIn();
+    	}
+    	else if(input == -1){
+    		Robot.unjammer.unjamOut();
+    	}
     }
 
     // Called repeatedly when this Command is scheduled to run

@@ -1,17 +1,21 @@
 package org.usfirst.frc.team5401.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team5401.robot.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class unjamIn extends Command {
+public class FeederControl extends Command {
+	
+	private int upDown;
+	private int inOut;
 
-    public unjamIn() {
+    public FeederControl() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.unjammer);
+    	requires(Robot.infeed);
     }
 
     // Called just before this Command runs the first time
@@ -20,12 +24,16 @@ public class unjamIn extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.unjammer.unjamIn();
+    	upDown = Robot.oi.getXboxLeftY_Operator();
+    	inOut  = Robot.oi.getTriggers_Operator();
+    	
+    	Robot.infeed.armUpDown(upDown);
+    	Robot.infeed.feedDirection(inOut);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
