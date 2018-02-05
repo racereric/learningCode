@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.Robot;
-import org.usfirst.frc.team5401.robot.commands.xboxMove;
+import org.usfirst.frc.team5401.robot.commands.XboxMove;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
@@ -88,7 +88,7 @@ public class AutoTurnAngle extends Command {
     	if (modeAuto) {	 //if in auto, stop motors
     		Robot.driveBase.Stop();
     	} else { //if in teleop, start xboxmove
-    		Scheduler.getInstance().add(new xboxMove());
+    		Scheduler.getInstance().add(new XboxMove());
     	}
     	System.out.println("AutoTurnAngle end()");
     }

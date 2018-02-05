@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.autonomous.*;
-import org.usfirst.frc.team5401.robot.commands.xboxMove;
+import org.usfirst.frc.team5401.robot.commands.XboxMove;
 import org.usfirst.frc.team5401.robot.subsystems.*;
 
 /**
@@ -120,7 +120,7 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		Scheduler.getInstance().add(new xboxMove());
+		Scheduler.getInstance().add(new XboxMove());
 	}
 
 	/**

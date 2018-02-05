@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class xboxMove extends Command {
+public class XboxMove extends Command {
 	
 	private final double MINIMUM_VELOCITY_FOR_HIGH_GEAR; //Experimentally Determined, REMEMBER inches per second
 	private final double MAXIMUM_VELOCITY_FOR_LOW_GEAR;
@@ -16,7 +16,7 @@ public class xboxMove extends Command {
 	double velocitySample1;
 	double velocitySample2;
 
-    public xboxMove() {
+    public XboxMove() {
     	
 		MINIMUM_VELOCITY_FOR_HIGH_GEAR 	= 35;// REMEMBER inches per second
 		MAXIMUM_VELOCITY_FOR_LOW_GEAR 	= 45;
