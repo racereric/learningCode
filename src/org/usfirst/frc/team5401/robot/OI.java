@@ -27,27 +27,27 @@ public class OI {
 	Joystick operatorCtrlr = new Joystick(RobotMap.XBOX_CONTROLLER_OPERATOR); 
 	
 	//Buttons (Block1 = driver, Block2 = Operator)
-	Button driverA       = new JoystickButton(driveCtrlr, 1);
-	Button driverB       = new JoystickButton(driveCtrlr, 2);
-	Button driverX       = new JoystickButton(driveCtrlr, 3);
-	Button driverY       = new JoystickButton(driveCtrlr, 4);
-	Button driveLB       = new JoystickButton(driveCtrlr, 5);
-	Button driveRB       = new JoystickButton(driveCtrlr, 6);
-	Button driveBack     = new JoystickButton(driveCtrlr, 7);
-	Button driveStart    = new JoystickButton(driveCtrlr, 8);
-	Button driveL3       = new JoystickButton(driveCtrlr, 9);
-	Button driveR3       = new JoystickButton(driveCtrlr, 10);
+	Button xboxA_Driver			  = new JoystickButton(xboxController_Driver, 1);
+	Button xboxB_Driver			  = new JoystickButton(xboxController_Driver, 2);
+	Button xboxX_Driver			  = new JoystickButton(xboxController_Driver, 3);
+	Button xboxY_Driver			  = new JoystickButton(xboxController_Driver, 4);
+	Button xboxLeftBumper_Driver  = new JoystickButton(xboxController_Driver, 5);
+	Button xboxRightBumper_Driver = new JoystickButton(xboxController_Driver, 6);
+	Button xboxBack_Driver		  = new JoystickButton(xboxController_Driver, 7);
+	Button xboxStart_Driver		  = new JoystickButton(xboxController_Driver, 8);
+	Button xboxL3_Driver		  = new JoystickButton(xboxController_Driver, 9);
+	Button xboxR3_Driver		  = new JoystickButton(xboxController_Driver, 10);
 	
-	Button operatorA     = new JoystickButton(operatorCtrlr, 1);
-	Button operatorB     = new JoystickButton(operatorCtrlr, 2);
-	Button operatorX     = new JoystickButton(operatorCtrlr, 3);
-	Button operatorY     = new JoystickButton(operatorCtrlr, 4);
-	Button operatorLB    = new JoystickButton(operatorCtrlr, 5);
-	Button operatorRB    = new JoystickButton(operatorCtrlr, 6);
-	Button operatorBack  = new JoystickButton(operatorCtrlr, 7);
-	Button operatorStart = new JoystickButton(operatorCtrlr, 8);
-	Button operatorL3    = new JoystickButton(operatorCtrlr, 9);
-	Button operatorR3    = new JoystickButton(operatorCtrlr, 10);
+	Button xboxA_Operator			= new JoystickButton(xboxController_Operator, 1);
+	Button xboxB_Operator			= new JoystickButton(xboxController_Operator, 2);
+	Button xboxX_Operator			= new JoystickButton(xboxController_Operator, 3);
+	Button xboxY_Operator			= new JoystickButton(xboxController_Operator, 4);
+	Button xboxLeftBumper_Operator  = new JoystickButton(xboxController_Operator, 5);
+	Button xboxRightBumper_Operator = new JoystickButton(xboxController_Operator, 6);
+	Button xboxBack_Operator		= new JoystickButton(xboxController_Operator, 7);
+	Button xboxStart_Operator		= new JoystickButton(xboxController_Operator, 8);
+	Button xboxL3_Operator		  	= new JoystickButton(xboxController_Operator, 9);
+	Button xboxR3_Operator		  	= new JoystickButton(xboxController_Operator, 10);
 	
 	
 	// There are a few additional built in buttons you can use. Additionally,
@@ -74,38 +74,38 @@ public class OI {
 	public OI(){
 		
 		//Loader
-		driverA.whenPressed(new loadShooter());
+		xboxA_Driver.whenPressed(new loadShooter());
 		
 		//Flywheels
-		operatorB.whenPressed(new FlywheelControl());
-		operatorB.whenReleased(new FlywheelControl());
+		xboxB_Operator.whenPressed(new FlywheelControl());
+		xboxB_Operator.whenReleased(new FlywheelControl());
 		
 		//Shooter %VBus Override
-		operatorBack.whenPressed(new ShooterToggle());
+		xboxBack_Operator.whenPressed(new ShooterToggle());
 		
 		//Shooter CeaseFire
-		operatorR3.whenPressed(new CeaseFire());
+		xboxR3_Operator.whenPressed(new CeaseFire());
 		
 		
 		//Gear Mechanism
-		driverX.whenPressed(new PopGear(1));
-		driverX.whenReleased(new PopGear(-1));
+		xboxX_Driver.whenPressed(new PopGear(1));
+		xboxX_Driver.whenReleased(new PopGear(-1));
 		
 		//Unjammer
-		operatorLB.whenPressed(new UnjamIn());
+		xboxLeftBumper_Operator.whenPressed(new UnjamIn());
 		
-		operatorRB.whenPressed(new UnjamToggle(1));
-		operatorRB.whenReleased(new UnjamToggle(-1));
+		xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
+		xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
 		
 		//Compressor Override
 //		operatorStart.whenPressed(new toggleCompressor());
 		
 		//Climber
-		operatorY.whenPressed(new Climb(1));
-		operatorY.whenReleased(new Climb(0));
+		xboxY_Operator.whenPressed(new Climb(1));
+		xboxY_Operator.whenReleased(new Climb(0));
 		
 		//Xbox Move Override
-		driverX.whenPressed(new XboxMove());
+		xboxX_Driver.whenPressed(new XboxMove());
 		
 		
 	}
