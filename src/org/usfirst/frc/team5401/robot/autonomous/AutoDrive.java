@@ -33,13 +33,13 @@ public class AutoDrive extends Command {
     public AutoDrive(double DistanceInput, double SpeedInput) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveBase);
+    	requires(Robot.drivebase);
 
     	desiredDistance = DistanceInput;
     	autoDriveSpeed = SpeedInput;
     	doneTraveling = true;
     	distanceTraveled = 0;
-    	heading = Robot.driveBase.reportGyro();
+    	heading = Robot.drivebase.reportGyro();
     	drift = 0;
     	kP_Drift = .1;
     	velocitySample2 = 0;
@@ -53,18 +53,18 @@ public class AutoDrive extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveBase.resetEncoders();
+    	Robot.drivebase.encoderReset();
 //    	Robot.drivebase.resetGyro(); 
-    	heading = Robot.driveBase.reportGyro();
+    	heading = Robot.drivebase.reportGyro();
     	drift = 0;
     	doneTraveling = true;
     	distanceTraveled = 0;
     	
     	System.out.println("AutoDriveInitializing");
-    	System.out.println("Angle when starting DriveShift:" + Robot.driveBase.reportGyro());
+    	System.out.println("Angle when starting DriveShift:" + Robot.drivebase.reportGyro());
     	SmartDashboard.putNumber("heading", heading);
     	
-    	Robot.driveBase.shiftHighToLow();
+    	Robot.drivebase.shiftGearHighToLow();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -73,33 +73,33 @@ public class AutoDrive extends Command {
     		//DesiredDistance too small!
     		doneTraveling = true;
     	} else {
-    		drift = Robot.driveBase.reportGyro() - heading;
+    		drift = Robot.drivebase.reportGyro() - heading;
     		SmartDashboard.putNumber("Drift", drift);
     			if (desiredDistance > 0 && (distanceTraveled < Math.abs(desiredDistance) - autoDistThresh)){ //DesiredDistance is positive, go forward
     				//Drive Forward
     				if (drift > .5){ //Currently assumes we always drift right while going forwards
-    					Robot.driveBase.drive(autoDriveSpeed + (kP_Drift * drift), autoDriveSpeed); //Adjust right motor when driving forward
+    					Robot.drivebase.drive(autoDriveSpeed + (kP_Drift * drift), autoDriveSpeed); //Adjust right motor when driving forward
 //    				} else if (drift < -.5){
 //    					Robot.drivebase.drive(autoDriveSpeed, autoDriveSpeed + (kP_Drift * drift));
     				} else {
-    					Robot.driveBase.drive(autoDriveSpeed, autoDriveSpeed);
+    					Robot.drivebase.drive(autoDriveSpeed, autoDriveSpeed);
     				}
     				doneTraveling = false;
     			} else if (desiredDistance < 0 && (distanceTraveled > autoDistThresh - Math.abs(desiredDistance))){ //DesiredDistance is negative, go backward
     				//Drive Backward
     				if (drift > .5){ //Currently assumes we always drift left (while looking backward as the front) while going backwards
-    					Robot.driveBase.drive(-autoDriveSpeed, -(autoDriveSpeed + (kP_Drift * drift)));//Adjusts left motor when driving backwards
+    					Robot.drivebase.drive(-autoDriveSpeed, -(autoDriveSpeed + (kP_Drift * drift)));//Adjusts left motor when driving backwards
     				} else if (drift < -.5){
-    					Robot.driveBase.drive(-autoDriveSpeed + (kP_Drift * drift), -autoDriveSpeed);
+    					Robot.drivebase.drive(-autoDriveSpeed + (kP_Drift * drift), -autoDriveSpeed);
     				} else {
-    					Robot.driveBase.drive(-autoDriveSpeed, -autoDriveSpeed);
+    					Robot.drivebase.drive(-autoDriveSpeed, -autoDriveSpeed);
     				}
     				doneTraveling = false;
     			} else { //error, exactly 0, or done
     				//Finished
     				doneTraveling = true;
     			}
-    		distanceTraveled = (Robot.driveBase.getEncDist());
+    		distanceTraveled = (Robot.drivebase.getEncoderDistance());
     	}
     	  	
     }
@@ -111,13 +111,13 @@ public class AutoDrive extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveBase.Stop();
-    	System.out.println("Angle when EXITING DriveShift:" + Robot.driveBase.reportGyro());
+    	Robot.drivebase.stop();
+    	System.out.println("Angle when EXITING DriveShift:" + Robot.drivebase.reportGyro());
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveBase.Stop();
+    	Robot.drivebase.stop();
     }
 }

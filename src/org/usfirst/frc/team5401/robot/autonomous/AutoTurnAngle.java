@@ -33,7 +33,7 @@ public class AutoTurnAngle extends Command {
     	modeAuto = inAuto;
     	modeAutoTarget = autoTarget;
     	
-    	requires(Robot.driveBase);
+    	requires(Robot.drivebase);
     	
     	desiredTurnAngle = angle;
     	currentAngle = 0;
@@ -44,7 +44,7 @@ public class AutoTurnAngle extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	initAngle = Robot.driveBase.reportGyro();
+    	initAngle = Robot.drivebase.reportGyro();
     	currentAngle = 0;
     	
     	if (modeAutoTarget){
@@ -62,19 +62,19 @@ public class AutoTurnAngle extends Command {
     		finished = true;
     	} else {
     		if (desiredTurnAngle > 0 && (currentAngle < Math.abs(desiredTurnAngle) - angleThreshold)){
-    			Robot.driveBase.drive(-autoTurnSpeed * autoTurnPrecision, autoTurnSpeed * autoTurnPrecision);
+    			Robot.drivebase.drive(-autoTurnSpeed * autoTurnPrecision, autoTurnSpeed * autoTurnPrecision);
     			finished = false;
     		} else if (desiredTurnAngle < 0 && (currentAngle > angleThreshold - Math.abs(desiredTurnAngle))) {
-    			Robot.driveBase.drive(autoTurnSpeed * autoTurnPrecision, -autoTurnSpeed * autoTurnPrecision);
+    			Robot.drivebase.drive(autoTurnSpeed * autoTurnPrecision, -autoTurnSpeed * autoTurnPrecision);
     			finished = false;
     		} else { //error or exactly 0
     			//Finished
     			finished = true;
     			System.out.println("AutoTurnAngle should stop2");
     		}
-    	currentAngle = Robot.driveBase.reportGyro() - initAngle;
+    	currentAngle = Robot.drivebase.reportGyro() - initAngle;
     	}
-    	double angle = Robot.driveBase.reportGyro();
+    	double angle = Robot.drivebase.reportGyro();
     	SmartDashboard.putNumber("Gyro Angle", currentAngle);
     }
 
@@ -86,7 +86,7 @@ public class AutoTurnAngle extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	if (modeAuto) {	 //if in auto, stop motors
-    		Robot.driveBase.Stop();
+    		Robot.drivebase.stop();
     	} else { //if in teleop, start xboxmove
     		Scheduler.getInstance().add(new XboxMove());
     	}
@@ -96,7 +96,7 @@ public class AutoTurnAngle extends Command {
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.driveBase.Stop();
+    	Robot.drivebase.stop();
     	System.out.println("AutoTurnAngle Interrupted");
     }
 }
