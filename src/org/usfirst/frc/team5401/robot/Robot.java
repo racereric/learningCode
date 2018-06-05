@@ -22,6 +22,11 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
+	/*
+	 * TODO:
+	 * 	Declare & Instantiate your subsystem.
+	 */
+	
 
 	public static DriveBase drivebase;
 	public static Loader loader;

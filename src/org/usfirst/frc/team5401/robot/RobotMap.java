@@ -16,6 +16,11 @@ public class RobotMap {
 	//public static final int conveyors     = 0;
 	//public static final int meteringMotor = 1;
 	
+	/*
+	 * TODO:
+	 * 	Create your motors, encoders, and any other missing constant.
+	 */
+	
 	//Global Variables
 	public static final double DRIVE_SENSITIVITY_DEFAULT = 1.0;
 	public static final double DRIVE_SENSITIVITY_PRECISE = 0.2;
@@ -59,10 +64,6 @@ public class RobotMap {
 	
     //PWM Motors
 
-	public static final int DRIVE_LEFT_MOTOR_1    = 0;
-	public static final int DRIVE_RIGHT_MOTOR_1   = 1;
-	public static final int DRIVE_LEFT_MOTOR_2    = 7;
-	public static final int DRIVE_RIGHT_MOTOR_2   = 8;
 	public static final int INFEEDER_MOTOR        = 3;
 	   //This would be shooter motors
 	//Infeeder Bar port 3
@@ -75,10 +76,6 @@ public class RobotMap {
 
 	
 	//Sensors
-	public static final int DRIVE_ENC_LEFT_A   =2;
-	public static final int DRIVE_ENC_RIGHT_A  =4;
-	public static final int DRIVE_ENC_LEFT_B   =3;
-	public static final int DRIVE_ENC_RIGHT_B  =5;
 	
 	//Pneumatics
 	public static final int PCM_ID          = 0;
