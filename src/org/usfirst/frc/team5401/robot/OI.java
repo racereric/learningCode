@@ -81,8 +81,8 @@ public class OI {
 		//xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
 
 		//Climber Button
-		xboxY_Operator.whenPressed(new Climb(1));
-		xboxY_Operator.whenReleased(new Climb(0));
+		xboxY_Operator.whenPressed(new PracticeClimb(1));
+		xboxY_Operator.whenReleased(new PracticeClimb(0));
 
 		//Compressor
 		xboxStart_Operator.whenPressed(new CompressorToggle());

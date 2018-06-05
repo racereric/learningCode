@@ -68,7 +68,7 @@ public class RobotMap {
 	//Infeeder Bar port 3
 	public static final int METERING_BAR          = 4;
 	public static final int HOPPER_BELTS          = 5;
-	public static final int CLIMBER_MOTOR 		  = 6;
+	public static final int PRACTICE_CLIMBER_MOTOR = 6;
 	public static final int LEFT_MOTOR_2          = 7;
 	public static final int RIGHT_MOTOR_2         = 8;
 	

@@ -30,7 +30,7 @@ public class Robot extends IterativeRobot {
 	public static CompressorSubsystem compressorsubsystem;
 	public static Climber climber;
 	public static Infeed infeed;
-	
+	public static PracticeClimber practiceClimber;
 	public static OI oi;
 	
 	
