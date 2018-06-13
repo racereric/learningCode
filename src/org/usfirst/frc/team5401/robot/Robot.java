@@ -27,8 +27,8 @@ public class Robot extends IterativeRobot {
 	 * 	Declare & Instantiate your subsystem.
 	 */
 	
-
-	public static DriveBase drivebase;
+    public static RyanBase ryanbase;
+	//public static DriveBase drivebase;
 	public static Loader loader;
 	public static GearMechanism gearMechanism;
 	public static Unjammer unjammer;
@@ -48,7 +48,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		drivebase = new DriveBase();
+		ryanbase = new RyanBase();
 		loader = new Loader();
 		gearMechanism = new GearMechanism();
 		unjammer = new Unjammer();

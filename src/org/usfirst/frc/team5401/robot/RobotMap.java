@@ -62,16 +62,27 @@ public class RobotMap {
 	public static final int RIGHT_STICK_AXIS_X	 = 4;
 	public static final int RIGHT_STICK_AXIS_Y   = 5;
 	
+	//Encoders
+	public static final int RIGHT_ENC_1          = 1;
+	public static final int RIGHT_ENC_2          = 2;
+	public static final int LEFT_ENC_1           = 3;
+	public static final int LEFT_ENC_2           = 4;
+	
     //PWM Motors
-
+    public static final int LEFT_DRIVE_MOTOR_1    = 1;
+    public static final int RIGHT_DRIVE_MOTOR_1   = 2;
+    //The top two lines originally had nothing, but now they are being used for RyanBase.
 	public static final int INFEEDER_MOTOR        = 3;
 	   //This would be shooter motors
 	//Infeeder Bar port 3
 	public static final int METERING_BAR          = 4;
 	public static final int HOPPER_BELTS          = 5;
 	public static final int PRACTICE_CLIMBER_MOTOR = 6;
-	public static final int LEFT_MOTOR_2          = 7;
-	public static final int RIGHT_MOTOR_2         = 8;
+	//public static final int LEFT_MOTOR_2          = 7;
+	//public static final int RIGHT_MOTOR_2         = 8;
+	//These last two were original motor names. The two below are for RyanBase.
+	public static final int LEFT_DRIVE_MOTOR_2     = 7;
+	public static final int RIGHT_DRIVE_MOTOR_2    = 8;
 	
 
 	

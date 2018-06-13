@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="C:/Users/racer/Documents/navx-mxp/java/lib/navx_frc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/racer/wpilib/user/java/lib/CTRE_Phoenix.jar"/>
 	<classpathentry kind="lib" path="C:/Users/racer/wpilib/user/java/lib/CTRE_Phoenix-sources.jar"/>
+	<classpathentry kind="var" path="USERLIBS_DIR/navx_frc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
