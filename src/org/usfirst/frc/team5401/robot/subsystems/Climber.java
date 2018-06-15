@@ -22,7 +22,7 @@ public class Climber extends Subsystem {
 	private double SPEED;
 	
 	public Climber(){
-		climberMotor = new VictorSP(RobotMap.CLIMBER_MOTOR);
+		climberMotor = new VictorSP(RobotMap.PRACTICE_CLIMBER_MOTOR);
 		SPEED = .9;
 		SmartDashboard.putNumber("ClimbSpeed", SPEED);
 		

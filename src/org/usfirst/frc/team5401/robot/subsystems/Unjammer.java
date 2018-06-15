@@ -14,7 +14,7 @@ public class Unjammer extends Subsystem {
 	private DoubleSolenoid unjammer;
 	
 	public Unjammer(){
-		unjammer = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.UNJAMMER_IN, RobotMap.UNJAMMER_OUT);
+		unjammer = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.UNJAM_IN, RobotMap.UNJAM_OUT);
 		
 		SmartDashboard.putString("Unjammer_text", "Unjammer");
 		SmartDashboard.putString("UnjammerOut_text", "GREEN = Unjammer Out");
