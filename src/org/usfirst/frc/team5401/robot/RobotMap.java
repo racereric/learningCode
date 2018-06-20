@@ -69,12 +69,12 @@ public class RobotMap {
 	public static final int LEFT_ENC_2           = 4;
 	
     //PWM Motors
-    public static final int LEFT_DRIVE_MOTOR_1    = 1;
-    public static final int RIGHT_DRIVE_MOTOR_1   = 2;
-	public static final int INFEEDER_MOTOR        = 3;
-	public static final int METERING_BAR          = 4;
-	public static final int HOPPER_BELTS          = 5;
-	public static final int PRACTICE_CLIMBER_MOTOR = 6;
+    public static final int LEFT_DRIVE_MOTOR_1    = 0;
+    public static final int RIGHT_DRIVE_MOTOR_1   = 1;
+	public static final int INFEEDER_MOTOR        = 2;
+	public static final int METERING_BAR          = 3;
+	public static final int HOPPER_BELTS          = 4;
+	public static final int PRACTICE_CLIMBER_MOTOR = 5;
 	public static final int LEFT_DRIVE_MOTOR_2     = 7;
 	public static final int RIGHT_DRIVE_MOTOR_2    = 8;
 	
