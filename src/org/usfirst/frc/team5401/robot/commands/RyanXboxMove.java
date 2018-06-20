@@ -32,7 +32,7 @@ public class RyanXboxMove extends Command {
     	SmartDashboard.putNumber("Gyro", angle);
     	Robot.ryanbase.reportGyro();
     	
-    	double slew = Robot.oi.readXboxLeftX_Driver();
+    	double slew = Robot.oi.readXboxLeftX_Driver() * -1;
     	
     	double forward = Robot.oi.readRightTrigger_Driver();
     	double reverse = Robot.oi.readLeftTrigger_Driver();
@@ -49,13 +49,34 @@ public class RyanXboxMove extends Command {
     	else {
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_DEFAULT;
     	}
+        if(!turn){
+    		if (slew > RobotMap.DRIVE_THRESHHOLD){ //If Slew is positive (Thumbstick pushed right), go Right
+    			left  = (forward - reverse) * sensitivity;					//Send Left full power
+    			right = (forward - reverse) * sensitivity * (1 - slew);	//Send Right partial power, tempered by how hard the thumbstick is being pushed
+    		} 
+    		else if (slew < (-1 * RobotMap.DRIVE_THRESHHOLD)){ //If Slew is negative (Thumbstick pushed left), go Left
+    			left  = (forward - reverse) * sensitivity * (1 + slew); //Send Left partial power, tempered by how hard thumbstick is being pushed left
+    			right = (forward - reverse) * sensitivity; 			//Send right full power
+    		} 
+    		else { //Drive forward/back normally
+    			left  = (forward - reverse) * sensitivity;
+    			right = (forward - reverse) * sensitivity;
+    		} 
+        }
+        else {
+        		if (Math.abs(slew) > RobotMap.DRIVE_THRESHHOLD){
+        			left  = RobotMap.DRIVE_SPIN_SENSITIVITY * slew;
+        			right = RobotMap.DRIVE_SPIN_SENSITIVITY * slew * -1;
+        		}
+        }
     	
     	Robot.ryanbase.drive(left, right);
     	
     	Robot.ryanbase.getEncoderDistance();
     	
     	velocitySample2 = Robot.ryanbase.getRobotVelocity();
-    }   
+    }  
+     
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
