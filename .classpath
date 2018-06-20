@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="org/usfirst/frc/team5401/robot/commands/toggleCompressor.java|org/usfirst/frc/team5401/robot/subsystems/ExampleSubsystem.java" kind="src" path="src"/>
+	<classpathentry excluding="org/usfirst/frc/team5401/robot/commands/toggleCompressor.java|org/usfirst/frc/team5401/robot/subsystems/ExampleSubsystem.java|org/usfirst/frc/team5401/robot/autonomous/AutoDrive.java|org/usfirst/frc/team5401/robot/autonomous/AutoTurnAngle.java|org/usfirst/frc/team5401/robot/autonomous/DoNothing.java|org/usfirst/frc/team5401/robot/autonomous/DriveForwardBack.java|org/usfirst/frc/team5401/robot/autonomous/DriveStraight.java|org/usfirst/frc/team5401/robot/autonomous/FullSpin.java|org/usfirst/frc/team5401/robot/autonomous/LoaderAndDrive.java|org/usfirst/frc/team5401/robot/autonomous/SpinDriveSpin.java|org/usfirst/frc/team5401/robot/autonomous/StraightTurnStraight.java" kind="src" path="src"/>
 	<classpathentry kind="var" path="wpilib" sourcepath="wpilib.sources"/>
 	<classpathentry kind="var" path="networktables.sources" sourcepath="networktables.sources"/>
 	<classpathentry kind="var" path="opencv" sourcepath="opencv.sources"/>
@@ -10,9 +10,9 @@
 	<classpathentry kind="var" path="wpiutil" sourcepath="wpiutil.sources"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix-sources.jar"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/CTRE_Phoenix.jar"/>
-	<classpathentry kind="lib" path="C:/Users/racer/Documents/navx-mxp/java/lib/navx_frc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/racer/wpilib/user/java/lib/CTRE_Phoenix.jar"/>
 	<classpathentry kind="lib" path="C:/Users/racer/wpilib/user/java/lib/CTRE_Phoenix-sources.jar"/>
+	<classpathentry kind="var" path="navx-mxp"/>
 	<classpathentry kind="var" path="USERLIBS_DIR/navx_frc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

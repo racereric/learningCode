@@ -24,8 +24,6 @@ public class RyanBase extends Subsystem {
 	
 	double LOW_GEAR_LEFT_DPP;
 	double LOW_GEAR_RIGHT_DPP;
-	double HIGH_GEAR_LEFT_DPP;
-	double HIGH_GEAR_RIGHT_DPP;
 	
 	private VictorSP leftDriveMotor1;
 	private VictorSP rightDriveMotor1;

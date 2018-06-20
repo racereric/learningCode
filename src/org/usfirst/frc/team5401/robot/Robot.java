@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team5401.robot.autonomous.*;
+
 import org.usfirst.frc.team5401.robot.commands.RyanXboxMove;
 import org.usfirst.frc.team5401.robot.subsystems.*;
 
@@ -35,12 +35,7 @@ public class Robot extends IterativeRobot {
 	public static CompressorSubsystem compressorsubsystem;
 	public static Climber climber;
 	public static Infeed infeed;
-	public static PracticeClimber practiceClimber;
 	public static OI oi;
-	
-	
-	Command autonomousCommand;
-	SendableChooser chooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -56,15 +51,6 @@ public class Robot extends IterativeRobot {
 		climber = new Climber();
 		oi = new OI();
 		
-		chooser = new SendableChooser();
-		chooser.addDefault("DoNothing", new DoNothing());
-		chooser.addObject("DriveStraight", new DriveStraight());
-		chooser.addObject("DriveForwardBack", new DriveForwardBack());
-		chooser.addObject("FullSpin", new FullSpin());
-		chooser.addObject("LoaderAndDrive", new LoaderAndDrive());
-		chooser.addObject("StraightTurnStraight", new StraightTurnStraight());
-		chooser.addObject("SpinDriveSpin", new SpinDriveSpin());
-		SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -95,7 +81,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = (Command) chooser.getSelected();
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -105,7 +90,6 @@ public class Robot extends IterativeRobot {
 		 */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) autonomousCommand.start();
 
 	}
 
@@ -124,9 +108,7 @@ public class Robot extends IterativeRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
-			autonomousCommand.cancel();
-		Scheduler.getInstance().add(new XboxMove());
+		Scheduler.getInstance().add(new RyanXboxMove());
 	}
 
 	/**
