@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.command.Command;
  * 	Fill out the command.
  */
 public class RyanXboxMove extends Command {
+	private final double MINIMUM_VELOCITY_FOR_HIGH_GEAR;
+	private final double MAXIMUM_VELOCITY_FOR_LOW_GEAR;
+	
 	double velocitySample1;
 	double velocitySample2;
 
@@ -20,10 +23,14 @@ public class RyanXboxMove extends Command {
     	requires(Robot.ryanbase);
     	velocitySample1 = 0;
         velocitySample2 = 0;
+        
+        MINIMUM_VELOCITY_FOR_HIGH_GEAR = 35;
+        MAXIMUM_VELOCITY_FOR_LOW_GEAR = 45;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Robot.ryanbase.shiftGearHighToLow();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -38,6 +45,9 @@ public class RyanXboxMove extends Command {
     	double reverse = Robot.oi.readLeftTrigger_Driver();
     	boolean precision = Robot.oi.getPrecision_Driver();
     	boolean turn = Robot.oi.getTurnButton_Driver();
+    	
+    	boolean gearShiftLow = Robot.oi.getXboxBack_Driver();
+    	boolean gearShiftHigh = Robot.oi.getXboxStart_Driver();
     	
 
     	

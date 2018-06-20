@@ -84,8 +84,8 @@ public class RobotMap {
 	
 	//Pneumatics
 	public static final int PCM_ID          = 0;
-	//public static final int SHIFTER_IN      = 0;
-	//public static final int SHIFTER_OUT     = 1;
+	public static final int SHIFTER_IN      = 0;
+	public static final int SHIFTER_OUT     = 1;
 	public static final int INFEEDER_IN     = 3;
 	public static final int INFEEDER_OUT    = 2;
 	public static final int UNJAM_IN        = 4;

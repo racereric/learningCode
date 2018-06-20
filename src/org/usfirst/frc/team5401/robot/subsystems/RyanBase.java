@@ -4,6 +4,7 @@ import org.usfirst.frc.team5401.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 import edu.wpi.first.wpilibj.Encoder;
 import com.kauailabs.navx.frc.AHRS;
@@ -24,11 +25,15 @@ public class RyanBase extends Subsystem {
 	
 	double LOW_GEAR_LEFT_DPP;
 	double LOW_GEAR_RIGHT_DPP;
+	double HIGH_GEAR_LEFT_DPP;
+	double HIGH_GEAR_RIGHT_DPP;
 	
 	private VictorSP leftDriveMotor1;
 	private VictorSP rightDriveMotor1;
 	private VictorSP leftDriveMotor2;
 	private VictorSP rightDriveMotor2;
+	
+	private DoubleSolenoid gearShifter;
 	
 	private Encoder leftEncoder;
 	private Encoder rightEncoder;
@@ -40,10 +45,15 @@ public class RyanBase extends Subsystem {
 		LOW_GEAR_LEFT_DPP = -.0189249;
 		LOW_GEAR_RIGHT_DPP = .0189249;
 		
+		HIGH_GEAR_LEFT_DPP = -.019423;
+		HIGH_GEAR_RIGHT_DPP = .019423;
+		
 		leftDriveMotor1 = new VictorSP(RobotMap.LEFT_DRIVE_MOTOR_1);
 		rightDriveMotor1 = new VictorSP(RobotMap.RIGHT_DRIVE_MOTOR_1);
 		leftDriveMotor2 = new VictorSP(RobotMap.LEFT_DRIVE_MOTOR_2);
 		rightDriveMotor2 = new VictorSP(RobotMap.RIGHT_DRIVE_MOTOR_2);
+		
+		gearShifter = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SHIFTER_IN, RobotMap.SHIFTER_OUT);
 		
 		rightEncoder = new Encoder(RobotMap.RIGHT_ENC_1, RobotMap.RIGHT_ENC_2, true, Encoder.EncodingType.k4X);
 		leftEncoder = new Encoder(RobotMap.LEFT_ENC_1, RobotMap.LEFT_ENC_2, true, Encoder.EncodingType.k4X);
@@ -68,6 +78,33 @@ public class RyanBase extends Subsystem {
     SmartDashboard.putNumber("Left Encoder Adj", leftEncoder.getDistance());
     SmartDashboard.putNumber("Right Encoder Adj", rightEncoder.getDistance());
     SmartDashboard.putNumber("Mean Encoder Adj", getEncoderDistance());
+    }
+    
+    public void shiftGearLowToHigh(){
+    	gearShifter.set(DoubleSolenoid.Value.kForward);
+    	rightEncoder.setDistancePerPulse(HIGH_GEAR_RIGHT_DPP);
+    	leftEncoder.setDistancePerPulse(HIGH_GEAR_LEFT_DPP);
+    	SmartDashboard.putNumber("Transmission:", -1);
+    	System.out.println("Shifted to High Gear");
+    	
+    }
+    
+    public void shiftGearHighToLow(){
+    	gearShifter.set(DoubleSolenoid.Value.kReverse);
+    	rightEncoder.setDistancePerPulse(LOW_GEAR_RIGHT_DPP);
+    	leftEncoder.setDistancePerPulse(LOW_GEAR_LEFT_DPP);
+    	SmartDashboard.putNumber("Transmission:", 1);
+    	System.out.println("Shifted to Low Gear");
+    }
+    
+    public void setDPPHighGear(){
+    	rightEncoder.setDistancePerPulse(HIGH_GEAR_RIGHT_DPP);
+    	leftEncoder.setDistancePerPulse(HIGH_GEAR_LEFT_DPP);
+    }
+    
+    public void setDPPLowGear(){
+    	rightEncoder.setDistancePerPulse(LOW_GEAR_RIGHT_DPP);
+    	leftEncoder.setDistancePerPulse(LOW_GEAR_LEFT_DPP);
     }
     
     public void stopDriveBase() {
