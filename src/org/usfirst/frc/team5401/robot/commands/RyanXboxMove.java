@@ -39,50 +39,23 @@ public class RyanXboxMove extends Command {
     	boolean precision = Robot.oi.getPrecision_Driver();
     	boolean turn = Robot.oi.getTurnButton_Driver();
     	
-    	if (false){
-    		slew *=-1;
-    		double temp = forward;
-    		forward = reverse;
-    		reverse = temp;
-    	}
+
     	
     	double right = 0, left = 0, sensitivity;
     	
     	if(precision){
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_PRECISE;
-    	} else {
+        }
+    	else {
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_DEFAULT;
     	}
     	
-    	if(false){
-    		left = 0;
-    		right = 0;
-    	} else if(!turn){
-    		if(slew > RobotMap.DRIVE_THRESHHOLD){
-    			left = (forward - reverse);
-    			right = (forward - reverse) * sensitivity * (1 - slew);
-    		} else if(slew < (-1 * RobotMap.DRIVE_THRESHHOLD)){
-    			left = (forward - reverse) * sensitivity * (1 + slew);
-    			right = (forward - reverse) * sensitivity;
-    		} else{
-    			left = (forward - reverse) * sensitivity;
-    			right = (forward - reverse) * sensitivity;
-    		}
-    	} else {
-    		if(false){
-    			slew *=-1;
-    		}
-    	    if(Math.abs(slew) > RobotMap.DRIVE_THRESHHOLD){
-    	    	left = RobotMap.DRIVE_SPIN_SENSITIVITY * slew;
-    	    	right = RobotMap.DRIVE_SPIN_SENSITIVITY * slew * -1;
-    	    }
-    	}
     	Robot.ryanbase.drive(left, right);
     	
     	Robot.ryanbase.getEncoderDistance();
     	
     	velocitySample2 = Robot.ryanbase.getRobotVelocity();
-    }
+    }   
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

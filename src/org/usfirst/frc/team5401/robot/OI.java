@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team5401.robot.commands.*;
-import org.usfirst.frc.team5401.robot.autonomous.*;
+//import org.usfirst.frc.team5401.robot.autonomous.*;
 import org.usfirst.frc.team5401.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -88,7 +88,7 @@ public class OI {
 		xboxStart_Operator.whenPressed(new CompressorToggle());
 		
 		//Override for starting the XboxMove command
-		xboxX_Driver.whenPressed(new XboxMove());
+		xboxX_Driver.whenPressed(new RyanXboxMove());
 		
 	}
 	

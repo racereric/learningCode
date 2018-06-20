@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team5401.robot.autonomous.*;
-import org.usfirst.frc.team5401.robot.commands.XboxMove;
+import org.usfirst.frc.team5401.robot.commands.RyanXboxMove;
 import org.usfirst.frc.team5401.robot.subsystems.*;
 
 /**
