@@ -49,7 +49,12 @@ public class RyanXboxMove extends Command {
     	boolean gearShiftLow = Robot.oi.getXboxBack_Driver();
     	boolean gearShiftHigh = Robot.oi.getXboxStart_Driver();
     	
-
+    	//Manual Gear Shift
+    	if (gearShiftHigh){
+    		Robot.ryanbase.shiftGearLowToHigh();
+    	} else if (gearShiftLow){
+    		Robot.ryanbase.shiftGearHighToLow();
+    	}
     	
     	double right = 0, left = 0, sensitivity;
     	
