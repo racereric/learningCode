@@ -52,43 +52,35 @@ public class XboxMove extends Command {
     	
     	if (gearShiftHigh){
     		Robot.drivebase.shiftGearLowToHigh();
-    	} else if (gearShiftLow){
+    	} 
+    	else if (gearShiftLow){
     		Robot.drivebase.shiftGearHighToLow();
     	}
-    	
-    	if (false){
-    		slew *=-1;
-    		double temp = throttle;
-    		throttle    = reverse;
-    		reverse     = temp;
-    	}
-    	
+    	  	
     	double right = 0, left = 0, sensitivity;
     	
     	if (precision){
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_PRECISE;
-    	} else {
+    	} 
+    	else {
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_DEFAULT;
     	}
     	
-    	if (false){
-    		left  = 0;
-    		right = 0;
-    	} else if (!turn){
+    	if (!turn){
     		if (slew > RobotMap.DRIVE_THRESHHOLD){
     			left  = (throttle - reverse) * sensitivity;
     			right = (throttle - reverse) * sensitivity * (1 - slew);
-    		} else if (slew < (-1 *RobotMap.DRIVE_THRESHHOLD)){
+    		} 
+    		else if (slew < (-1 *RobotMap.DRIVE_THRESHHOLD)){
     			left  = (throttle - reverse) * sensitivity * (1 + slew);
     			right = (throttle - reverse) * sensitivity;
-    		} else {
+    		} 
+    		else {
     			left  = (throttle - reverse) * sensitivity;
     			right = (throttle - reverse) * sensitivity;
     		}
-    	} else {
-    		if (false){
-    			slew *= -1;
-    		}
+    	} 
+    	else {
     		if (Math.abs(slew) > RobotMap.DRIVE_THRESHHOLD){
     			left  = RobotMap.DRIVE_SPIN_SENSITIVITY * slew;
     			right = RobotMap.DRIVE_SPIN_SENSITIVITY * slew * -1;

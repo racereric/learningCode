@@ -75,10 +75,10 @@ public class OI {
 		xboxX_Driver.whenReleased(new PopGear(-1));
 		
 		//Unjammer
-		//xboxLeftBumper_Operator.whenPressed(new UnjamIn());
+		xboxLeftBumper_Operator.whenPressed(new UnjamIn());
 		
-		//xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
-		//xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
+		xboxRightBumper_Operator.whenPressed(new UnjamToggle(1));
+		xboxRightBumper_Operator.whenReleased(new UnjamToggle(-1));
 
 		//Climber Button
 		xboxY_Operator.whenPressed(new PracticeClimb(1));

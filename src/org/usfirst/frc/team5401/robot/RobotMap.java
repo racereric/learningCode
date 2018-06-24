@@ -65,10 +65,9 @@ public class RobotMap {
 	public static final int DRIVE_RIGHT_MOTOR_2   = 8;
 	public static final int INFEEDER_MOTOR        = 3;
 	   //This would be shooter motors
-	//Infeeder Bar port 3
 	public static final int METERING_BAR          = 4;
 	public static final int HOPPER_BELTS          = 5;
-	public static final int PRACTICE_CLIMBER_MOTOR = 6;
+	public static final int CLIMBER_MOTOR 		  = 6;
 	public static final int LEFT_MOTOR_2          = 7;
 	public static final int RIGHT_MOTOR_2         = 8;
 	
@@ -88,7 +87,6 @@ public class RobotMap {
 	public static final int INFEEDER_OUT    = 2;
 	public static final int UNJAM_IN        = 4;
 	public static final int UNJAM_OUT       = 5;
-//	feeder out 2; in 3;
 
 	public static final int GEAR_DOOR_OPEN  = 6;
 	public static final int GEAR_DOOR_CLOSE = 7;
