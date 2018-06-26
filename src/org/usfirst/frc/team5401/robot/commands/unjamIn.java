@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class UnjamIn extends Command {
+public class unjamIn extends Command {
 
-    public UnjamIn() {
+    public unjamIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.unjammer);

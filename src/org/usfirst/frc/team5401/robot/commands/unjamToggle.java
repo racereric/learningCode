@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class UnjamToggle extends Command {
+public class unjamToggle extends Command {
 	
 	private int input;
 
-    public UnjamToggle(int direction) {
+    public unjamToggle(int direction) {
         // Use requires() here to declare subsystem dependencies
     	requires(Robot.unjammer);
     	input = direction;
