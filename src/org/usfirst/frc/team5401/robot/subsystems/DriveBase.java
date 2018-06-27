@@ -52,7 +52,8 @@ public class DriveBase extends Subsystem {
 		rightDrive2 = new VictorSP(RobotMap.DRIVE_RIGHT_MOTOR_2);
 		gearShifter = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.SHIFTER_IN, RobotMap.SHIFTER_OUT);
 		
-		leftEncoder = new Encoder(RobotMap.DRIVE_ENC_LEFT_A, RobotMap.DRIVE_ENC_LEFT_B, true, Encoder.EncodingType.k4X);																					vvv if this was false, DPP doesn't have to be negative
+		//vvv if this was false, DPP doesn't have to be negative
+		leftEncoder = new Encoder(RobotMap.DRIVE_ENC_LEFT_A, RobotMap.DRIVE_ENC_LEFT_B, true, Encoder.EncodingType.k4X);																					
 		rightEncoder = new Encoder(RobotMap.DRIVE_ENC_RIGHT_A, RobotMap.DRIVE_ENC_RIGHT_B, true, Encoder.EncodingType.k4X);
 		
 		navxGyro = new AHRS(SerialPort.Port.kMXP);
