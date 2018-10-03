@@ -21,7 +21,9 @@ public class RobotMap {
 	public static final double DRIVE_SENSITIVITY_PRECISE = 0.2;
 	public static final double DRIVE_SPIN_SENSITIVITY 	 = 0.5;
 	public static final double DRIVE_THRESHHOLD 		 = 0.1;
-		
+
+	public static final double SHOOTER_SETPOINT      = 0.0;
+	
 	//Controllers
 	public static final int XBOX_CONTROLLER_DRIVER   = 0;
 	public static final int XBOX_CONTROLLER_OPERATOR = 1;
@@ -62,6 +64,7 @@ public class RobotMap {
 	public static final int DRIVE_RIGHT_MOTOR_1   = 1;
 	public static final int DRIVE_LEFT_MOTOR_2    = 7;
 	public static final int DRIVE_RIGHT_MOTOR_2   = 8;
+	public static final int SHOOTER_MOTORS        = 2;
 	public static final int INFEEDER_MOTOR        = 3;
 	   //This would be shooter motors
 	public static final int METERING_BAR          = 4;

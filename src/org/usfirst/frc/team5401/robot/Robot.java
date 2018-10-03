@@ -29,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static Unjammer unjammer;
 	public static CompressorSubsystem compressorsubsystem;
 	public static Climber climber;
+	public static Shooter shooter;
 	public static Infeed infeed;
 
 	public static OI oi;
@@ -49,6 +50,7 @@ public class Robot extends IterativeRobot {
 		unjammer = new Unjammer();
 		compressorsubsystem = new CompressorSubsystem();
 		climber = new Climber();
+		shooter = new Shooter();
 		oi = new OI();
 		
 	}

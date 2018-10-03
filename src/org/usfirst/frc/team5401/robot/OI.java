@@ -74,12 +74,22 @@ public class OI {
 		xboxX_Driver.whenPressed(new PopGear(1));
 		xboxX_Driver.whenReleased(new PopGear(-1));
 		
+		//Shooter
+		xboxB_Operator.whenPressed(new FlyWheelControl());
+		xboxB_Operator.whenReleased(new FlyWheelControl());
+		
 		//Unjammer
 		xboxLeftBumper_Operator.whenPressed(new unjamIn());
 		
 		xboxRightBumper_Operator.whenPressed(new unjamToggle(1));
 		xboxRightBumper_Operator.whenReleased(new unjamToggle(-1));
 
+		//Shooter Override
+		xboxBack_Operator.whenPressed(new ShooterToggle());
+		
+		//Cease Fire (Shooter)
+		xboxR3_Operator.whenPressed(new CeaseFire());
+		
 		//Climber Button
 		xboxY_Operator.whenPressed(new Climb(1));
 		xboxY_Operator.whenReleased(new Climb(0));
