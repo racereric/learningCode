@@ -58,7 +58,6 @@ public class RobotMap {
 	public static final int RIGHT_STICK_AXIS_Y   = 5;
 	
     //PWM Motors
-
 	public static final int DRIVE_LEFT_MOTOR_1    = 0;
 	public static final int DRIVE_RIGHT_MOTOR_1   = 1;
 	public static final int DRIVE_LEFT_MOTOR_2    = 7;
@@ -74,10 +73,10 @@ public class RobotMap {
 
 	
 	//Sensors
-	public static final int DRIVE_ENC_LEFT_A   =2;
-	public static final int DRIVE_ENC_RIGHT_A  =4;
-	public static final int DRIVE_ENC_LEFT_B   =3;
-	public static final int DRIVE_ENC_RIGHT_B  =5;
+	public static final int DRIVE_ENC_LEFT_A   = 2;
+	public static final int DRIVE_ENC_RIGHT_A  = 4;
+	public static final int DRIVE_ENC_LEFT_B   = 3;
+	public static final int DRIVE_ENC_RIGHT_B  = 5;
 	
 	//Pneumatics
 	public static final int PCM_ID          = 0;
@@ -93,10 +92,7 @@ public class RobotMap {
 	
 	//Analog
 	public static final int PRESSURE_SENSOR  = 0;
-	public static final int UNJAMMER_IN = 0;
-	public static final int UNJAMMER_OUT = 0;
 	
-
 	// If you are using multiple modules, make sure to define both the port
 	// number and the module. For example you with a rangefinder:
 	// public static int rangefinderPort = 1;

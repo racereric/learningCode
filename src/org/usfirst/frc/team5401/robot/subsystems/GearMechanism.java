@@ -24,10 +24,10 @@ public class GearMechanism extends Subsystem {
     }
     
     public void gearInOut(int gearDirection){
-    	if(gearDirection == 1){
+    	if(gearDirection == -1){
     		gearMech.set(DoubleSolenoid.Value.kForward);
     	}
-    	else if(gearDirection == -1){
+    	else if(gearDirection == 1){
     		gearMech.set(DoubleSolenoid.Value.kReverse);
     	}
     }

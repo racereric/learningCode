@@ -25,7 +25,7 @@ public class XboxMove extends Command {
         // Use requires() here to declare subsystem dependencies
 
     	requires(Robot.drivebase);
-    	System.out.println("XBoxMove Constructed");
+    	System.out.println("XboxMove Constructed");
         // eg. requires(chassis);
     }
 
@@ -50,6 +50,7 @@ public class XboxMove extends Command {
     	boolean gearShiftLow  = Robot.oi.getXboxBack_Driver();
     	boolean gearShiftHigh = Robot.oi.getXboxStart_Driver();
     	
+    	//Gear Shifting
     	if (gearShiftHigh){
     		Robot.drivebase.shiftGearLowToHigh();
     	} 
@@ -59,6 +60,7 @@ public class XboxMove extends Command {
     	  	
     	double right = 0, left = 0, sensitivity;
     	
+    	//Precision
     	if (precision){
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_PRECISE;
     	} 
@@ -66,6 +68,7 @@ public class XboxMove extends Command {
     		sensitivity = RobotMap.DRIVE_SENSITIVITY_DEFAULT;
     	}
     	
+    	//Forward/Backward + Left/Right (While Driving)
     	if (!turn){
     		if (slew > RobotMap.DRIVE_THRESHHOLD){
     			left  = (throttle - reverse) * sensitivity;
@@ -79,7 +82,8 @@ public class XboxMove extends Command {
     			left  = (throttle - reverse) * sensitivity;
     			right = (throttle - reverse) * sensitivity;
     		}
-    	} 
+    	}
+    	//Pirouette
     	else {
     		if (Math.abs(slew) > RobotMap.DRIVE_THRESHHOLD){
     			left  = RobotMap.DRIVE_SPIN_SENSITIVITY * slew;

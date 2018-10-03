@@ -39,7 +39,6 @@ public class DriveBase extends Subsystem {
 	AHRS navxGyro;
 	
 	public DriveBase(){
-		                      //TODO check on comp bot
 		LOW_GEAR_LEFT_DPP = -.0189249;//0.0189249;//<---New Comp DPP //-.020268;//<------for practice 0.019125;
 		LOW_GEAR_RIGHT_DPP = .0189249;//0.0189249;//<---New Comp //.020268;//<--- for comp //0.019125; //<--- for practice
 
@@ -63,10 +62,10 @@ public class DriveBase extends Subsystem {
 		SmartDashboard.putString("HighGear_text", "GREEN = High");
 		SmartDashboard.putString("LowGear_text" , "RED = Low");
 		if ((DoubleSolenoid.Value.kForward).equals(gearShifter.get())){
-			SmartDashboard.putNumber("Transmission", -1); //Transmisison is High
+			SmartDashboard.putNumber("Transmission", -1); //High Gear
 		} 
 		else {
-			SmartDashboard.putNumber("Transmission", 1); //Transmisison is Low
+			SmartDashboard.putNumber("Transmission", 1); //Low Gear
 		}
 		
 		SmartDashboard.putNumber("Robot Velocity", 0);
@@ -81,7 +80,7 @@ public class DriveBase extends Subsystem {
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-//    	setDefaultCommand(new XboxMove());
+    	// setDefaultCommand(new XboxMove());
     }
     
     public void drive(double leftDriveDesired, double rightDriveDesired){
@@ -106,20 +105,20 @@ public class DriveBase extends Subsystem {
     }
 
     public void shiftGearLowToHigh(){//Meaning Low speed to high speed
-    	//Assumes Pneumatic forward/out shifts low to high
+    	//Assumes Pneumatic kForward shifts low to high
     	gearShifter.set(DoubleSolenoid.Value.kForward);
     	leftEncoder.setDistancePerPulse(HIGH_GEAR_LEFT_DPP);
     	rightEncoder.setDistancePerPulse(HIGH_GEAR_RIGHT_DPP);
-    	SmartDashboard.putNumber("Transmission", -1); //Transmisison is High
+    	SmartDashboard.putNumber("Transmission", -1); //High Gear
     	System.out.println("Shifting Drive Gear to High Gear");
     }
 
     public void shiftGearHighToLow(){
-    	//Assumes Pneumatic reverse/in shifts high to low
+    	//Assumes kReverse shifts high to low
     	gearShifter.set(DoubleSolenoid.Value.kReverse);
     	leftEncoder.setDistancePerPulse(LOW_GEAR_LEFT_DPP);
     	rightEncoder.setDistancePerPulse(LOW_GEAR_RIGHT_DPP);
-    	SmartDashboard.putNumber("Transmission", 1); //Transmisison is Low
+    	SmartDashboard.putNumber("Transmission", 1); //Low Gear
     	System.out.println("Shifting Drive Gear to Low Gear");
     }
     public double getVelocityOfRobot(){
