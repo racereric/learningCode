@@ -51,6 +51,7 @@ public class Robot extends IterativeRobot {
 		compressorsubsystem = new CompressorSubsystem();
 		climber = new Climber();
 		shooter = new Shooter();
+		infeed = new Infeed();
 		oi = new OI();
 		
 	}
