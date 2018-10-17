@@ -49,6 +49,8 @@ public class Robot extends IterativeRobot {
 		unjammer = new Unjammer();
 		compressorsubsystem = new CompressorSubsystem();
 		climber = new Climber();
+		infeed = new Infeed();
+		
 		oi = new OI();
 		
 	}

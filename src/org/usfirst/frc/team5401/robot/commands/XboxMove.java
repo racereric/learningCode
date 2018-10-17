@@ -47,8 +47,8 @@ public class XboxMove extends Command {
     	boolean precision  = Robot.oi.getPrecision_Driver();
     	boolean turn       = Robot.oi.getTurnButton_Driver();
     	
-    	boolean gearShiftLow  = Robot.oi.getXboxBack_Driver();
-    	boolean gearShiftHigh = Robot.oi.getXboxStart_Driver();
+    	boolean gearShiftLow  = Robot.oi.getBack_Driver();
+    	boolean gearShiftHigh = Robot.oi.getStart_Driver();
     	
     	//Gear Shifting
     	if (gearShiftHigh){
@@ -88,17 +88,12 @@ public class XboxMove extends Command {
     		if (Math.abs(slew) > RobotMap.DRIVE_THRESHHOLD){
     			left  = RobotMap.DRIVE_SPIN_SENSITIVITY * slew;
     			right = RobotMap.DRIVE_SPIN_SENSITIVITY * slew * -1;
-    				
+   		
     			}
     		}
-    	
     	Robot.drivebase.drive(left, right);
-    	
     	Robot.drivebase.getEncoderDistance();
-    	
-    	velocitySample2 = Robot.drivebase.getVelocityOfRobot();
-    	
-    		
+    	velocitySample2 = Robot.drivebase.getVelocityOfRobot();	
     	}
     
     

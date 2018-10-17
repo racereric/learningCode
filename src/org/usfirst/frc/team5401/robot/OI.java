@@ -161,15 +161,4 @@ public class OI {
 	public boolean getStart_Driver(){
 		return xboxController_Driver.getRawButton(RobotMap.XBOX_START_DRIVER);
 	}
-	
-	//Gear Shift to Low
-	public boolean getXboxBack_Driver(){
-		return xboxController_Driver.getRawButton(RobotMap.XBOX_BACK_DRIVER);
-	}
-	
-	
-	//Gear Shift to High
-	public boolean getXboxStart_Driver(){
-		return xboxController_Driver.getRawButton(RobotMap.XBOX_START_DRIVER);
-	}
 }
