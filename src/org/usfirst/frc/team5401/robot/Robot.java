@@ -22,7 +22,6 @@ import org.usfirst.frc.team5401.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot {
 	
-
 	public static DriveBase drivebase;
 	public static Loader loader;
 	public static GearMechanism gearMechanism;
